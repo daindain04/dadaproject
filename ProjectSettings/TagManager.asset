@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PuzzleButton
   layers:
   - Default
   - TransparentFX
@@ -11,7 +12,7 @@ TagManager:
   - obstacles
   - Water
   - UI
-  - 
+  - uiobject
   - 
   - 
   - 
@@ -49,4 +50,7 @@ TagManager:
     locked: 0
   - name: obstacles
     uniqueID: 2263258289
+    locked: 0
+  - name: New Layer 4
+    uniqueID: 3882099145
     locked: 0

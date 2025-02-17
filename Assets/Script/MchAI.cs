@@ -33,9 +33,7 @@ public class MchAI : MonoBehaviour
             {
                 moveBounds = areaCollider.bounds;
             }
-       
         }
-        
 
         PickNewDirection(); // 초기 방향 설정
     }
@@ -93,6 +91,9 @@ public class MchAI : MonoBehaviour
             {
                 PickNewDirection(); // 이동 가능 범위를 벗어나면 새로운 방향 설정
             }
+
+            //  캐릭터 방향 변경 (왼쪽/오른쪽)
+            FlipCharacter();
         }
     }
 
@@ -108,5 +109,21 @@ public class MchAI : MonoBehaviour
         }
 
         Debug.Log("새 이동 방향: " + movementDirection);
+
+        //  방향 변경 후 캐릭터 방향 조정
+        FlipCharacter();
+    }
+
+    //  캐릭터가 이동 방향에 따라 좌우 반전
+    void FlipCharacter()
+    {
+        if (movementDirection.x > 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1); // 오른쪽을 바라봄
+        }
+        else if (movementDirection.x < 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1); // 왼쪽을 바라봄
+        }
     }
 }
