@@ -2,49 +2,64 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class GameController : MonoBehaviour
 {
     [Header("타이머 관련")]
-    public Slider timerSlider;  // 타이머 슬라이더 (UI)
-    public float maxTime = 30f; // 제한 시간 (초)
-    private float timeLeft;      // 남은 시간
-    private bool isGameRunning = false; // 게임 진행 상태
+    public Slider timerSlider;
+    public float maxTime = 30f;
+    private float timeLeft;
+    private bool isGameRunning = false;
+
+    [Header("타이머 텍스트")]
+    public TextMeshProUGUI timerText;
 
     [Header(" Pause 버튼 관련")]
-    public Button pauseButton;   // UI의 Pause 버튼
-    public Sprite playIcon;      // 재생 아이콘 (Play)
-    public Sprite pauseIcon;     // 일시 정지 아이콘 (Pause)
+    public Button pauseButton;
+    public Sprite playIcon;
+    public Sprite pauseIcon;
 
-    private bool isPaused = false; // 현재 게임이 멈췄는지 여부
-    private CardGameController cardController; // 카드 컨트롤러 참조
+    private bool isPaused = false;
+    private CardGameController cardController;
 
     [Header(" 홈 버튼 관련")]
-    public Button homeButton;    // 홈 버튼 (UI)
-    public GameObject noticePanel; // Notice Panel (팝업)
-    public Button yesButton;     // "예" 버튼
-    public Button noButton;      // "아니요" 버튼
-    public GameObject inGame;    // InGame 오브젝트 (비활성화 대상)
+    public Button homeButton;
+    public GameObject noticePanel;
+    public Button yesButton;
+    public Button noButton;
+    public GameObject inGame;
 
     [Header(" 게임 시작 버튼")]
-    public Button gameButton;   // 게임 시작 버튼 (GameButton)
+    public Button gameButton;
+
+    [Header("게임 오버 패널")]
+    public GameObject gameOverPanel;
+    public Button restartButton;
+    public Button exitButton;
 
     void Start()
     {
-        // 초기 설정
-        noticePanel.SetActive(false);  // Notice Panel 비활성화
-        inGame.SetActive(false);       // InGame 비활성화
-        isGameRunning = false;         // 게임 시작 전 상태
 
-        // 카드 컨트롤러 찾기
+        noticePanel.SetActive(false);
+        inGame.SetActive(false);
+        isGameRunning = false;
+        gameOverPanel.SetActive(false);
+
+
         cardController = FindObjectOfType<CardGameController>();
 
-        // 버튼 이벤트 추가
+
         pauseButton.onClick.AddListener(TogglePause);
         homeButton.onClick.AddListener(ShowNoticePanel);
         yesButton.onClick.AddListener(GoToMainMenu);
         noButton.onClick.AddListener(CloseNoticePanel);
-        gameButton.onClick.AddListener(StartNewGame);  // 게임 시작 버튼 이벤트 추가
+        gameButton.onClick.AddListener(StartNewGame);
+        restartButton.onClick.AddListener(RestartGame);
+        exitButton.onClick.AddListener(GoToMainMenu);
+
+        timerText.text = maxTime.ToString("F0");
     }
 
     void Update()
@@ -53,6 +68,18 @@ public class GameController : MonoBehaviour
         {
             timeLeft -= Time.deltaTime;
             timerSlider.value = timeLeft;
+
+            timerText.text = Mathf.Ceil(timeLeft).ToString("F0");
+
+
+            if (timeLeft <= 10)
+            {
+                timerText.color = new Color32(227, 28, 21, 255); // #E31C15 
+            }
+            else
+            {
+                timerText.color = new Color32(223, 113, 29, 255); // #E45E2B 
+            }
 
             if (timeLeft <= 0)
             {
@@ -65,7 +92,7 @@ public class GameController : MonoBehaviour
 
     void TogglePause()
     {
-        isPaused = !isPaused;  // 상태 변경
+        isPaused = !isPaused;
 
         if (isPaused)
         {
@@ -82,13 +109,13 @@ public class GameController : MonoBehaviour
         isPaused = true;
         isGameRunning = false;
 
-        // 카드 클릭 비활성화
+
         foreach (Button btn in cardController.btns)
         {
             btn.interactable = false;
         }
 
-        // 버튼 아이콘 변경 (Pause → Play)
+
         pauseButton.image.sprite = playIcon;
     }
 
@@ -97,20 +124,31 @@ public class GameController : MonoBehaviour
         isPaused = false;
         isGameRunning = true;
 
-        // 카드 클릭 활성화
+
         foreach (Button btn in cardController.btns)
         {
             btn.interactable = true;
         }
 
-        // 버튼 아이콘 변경 (Play → Pause)
+
         pauseButton.image.sprite = pauseIcon;
     }
 
     void GameOver()
     {
         Debug.Log("시간 초과! 게임 종료");
-        // 추가 게임 오버 로직 가능 (예: 패널 띄우기, 재시작 버튼 활성화 등)
+
+
+        isGameRunning = false;
+
+
+        foreach (Button btn in cardController.btns)
+        {
+            btn.interactable = false;
+        }
+
+
+        gameOverPanel.SetActive(true);
     }
 
     // 홈 버튼을 누르면 Notice Panel 표시 + 게임 정지
@@ -120,17 +158,53 @@ public class GameController : MonoBehaviour
         noticePanel.SetActive(true);
         isGameRunning = false;
 
-        // 카드 클릭 비활성화
+
         foreach (Button btn in cardController.btns)
         {
             btn.interactable = false;
         }
     }
+    void RestartGame()
+    {
+        Debug.Log("게임 재시작!");
+
+        gameOverPanel.SetActive(false);
+
+
+        ResetCards();
+
+
+        StartNewGame();
+      
+    }
+    void ResetCards()
+    {
+        // 카드 리스트 초기화
+        cardController.gamePuzzles.Clear();
+
+        // 새로운 카드 리스트 생성
+        cardController.AddGamePuzzles();
+        cardController.Shuffle(cardController.gamePuzzles);
+
+        // 모든 카드 뒷면으로 설정 & 클릭 가능하도록 설정
+        foreach (Button btn in cardController.btns)
+        {
+            btn.image.sprite = cardController.bgImage; // 카드 뒷면 이미지로 설정
+            btn.interactable = true; // 다시 클릭 가능하도록 변경
+
+            // 카드의 투명도를 복구 (완전히 보이게)
+            btn.image.color = new Color(1, 1, 1, 1);
+        }
+    }
+
+
+
 
     // "예" 버튼 클릭 시 InGame 비활성화 → 메인 화면으로 이동
     void GoToMainMenu()
     {
         inGame.SetActive(false);
+        ResetGameState();
     }
 
     // "아니요" 버튼 클릭 시 Notice Panel 닫고 게임 재개
@@ -147,7 +221,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-    // 게임 시작 버튼 (GameButton) 클릭 시 새로운 게임 시작
     void StartNewGame()
     {
         Debug.Log("새로운 게임 시작!");
@@ -155,24 +228,28 @@ public class GameController : MonoBehaviour
         // InGame 오브젝트 활성화
         inGame.SetActive(true);
 
+        //  패널 비활성화 
+        noticePanel.SetActive(false);
+        gameOverPanel.SetActive(false);
+
+        // 게임 상태 완전히 초기화
+        ResetGameState();
+
         // 타이머 초기화
         timeLeft = maxTime;
         timerSlider.value = maxTime;
         isGameRunning = true;
         isPaused = false;
 
-        // 카드 상태 초기화
-        foreach (Button btn in cardController.btns)
-        {
-            btn.interactable = true;
-            btn.image.sprite = cardController.bgImage;  // 카드 뒷면으로 초기화
-        }
+        timerText.text = maxTime.ToString("F0");
 
-        // 카드 섞기 (Shuffle 함수 호출)
+        // 카드 상태 초기화
+        ResetCards();
+
+        // 카드 섞기
         ShuffleCards();
     }
 
-    // 카드 섞기 함수
     void ShuffleCards()
     {
         List<Sprite> shuffledCards = new List<Sprite>(cardController.gamePuzzles);
@@ -186,4 +263,29 @@ public class GameController : MonoBehaviour
 
         cardController.gamePuzzles = shuffledCards;
     }
+
+    public void ResetGameState()
+    {
+        // 카드 선택 상태 초기화
+        cardController.firstGuess = false;
+        cardController.secondGuess = false;
+        cardController.countGuesses = 0;
+        cardController.countCorrectGuesses = 0;
+
+        // 남아 있는 카드 상태 초기화
+        foreach (Button btn in cardController.btns)
+        {
+            btn.image.sprite = cardController.bgImage; // 뒷면으로 설정
+            btn.image.color = new Color(1, 1, 1, 1);  // 투명도 복원
+            btn.interactable = true; // 다시 클릭 가능하도록 설정
+        }
+
+        // 카드 다시 섞기
+        cardController.gamePuzzles.Clear();
+        cardController.AddGamePuzzles();
+
+        //  ShuffleCards()가 이제 제대로 호출됨!
+        ShuffleCards();
+    }
+
 }

@@ -15,10 +15,10 @@ public class CardGameController : MonoBehaviour
 
     public List<Button> btns = new List<Button>();
 
-    private bool firstGuess, secondGuess;
+    public bool firstGuess, secondGuess;
 
-    private int countGuesses;
-    private int countCorrectGuesses;
+    public int countGuesses;
+    public int countCorrectGuesses;
     private int gameGuesses;
 
     private int firstGuessIndex, secondGuessIndex;
@@ -59,7 +59,7 @@ public class CardGameController : MonoBehaviour
         }
 
     }
-    void AddGamePuzzles()
+    public void AddGamePuzzles()
     {
         int looper = btns.Count;
         int index = 0;
@@ -147,7 +147,7 @@ public class CardGameController : MonoBehaviour
         }
     }
 
-    void Shuffle(List<Sprite> list)
+    public void Shuffle(List<Sprite> list)
     {
         for (int i = 0; i < list.Count; i++)
         {
@@ -155,9 +155,7 @@ public class CardGameController : MonoBehaviour
             int randomIndex = Random.Range(i, list.Count);
             list[i] = list[randomIndex];
             list[randomIndex] = temp;
-
         }
-
     }
 
 
