@@ -140,10 +140,18 @@ public class CardGameController : MonoBehaviour
     {
         countCorrectGuesses++;
 
-        if (countCorrectGuesses == gameGuesses)
+        if (countCorrectGuesses >= gameGuesses)
         {
-            Debug.Log("Game Finished");
+            Debug.Log("모든 카드를 맞췄습니다! 게임 성공!");
 
+            // 타이머 멈추기
+            FindObjectOfType<GameController>().StopTimer();
+
+            // 성공 패널 활성화
+            FindObjectOfType<GameController>().successPanel.SetActive(true);
+
+            // 100코인 지급
+            CoinManager.instance.AddCoins(100);
         }
     }
 

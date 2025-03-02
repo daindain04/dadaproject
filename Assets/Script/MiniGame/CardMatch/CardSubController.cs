@@ -39,6 +39,13 @@ public class GameController : MonoBehaviour
     public Button restartButton;
     public Button exitButton;
 
+    [Header("성공 패널 관련")]
+    public GameObject successPanel; // 성공 패널
+    public Button HomeButton; // 성공 패널 내 버튼
+   
+
+
+
     void Start()
     {
 
@@ -46,6 +53,7 @@ public class GameController : MonoBehaviour
         inGame.SetActive(false);
         isGameRunning = false;
         gameOverPanel.SetActive(false);
+        successPanel.SetActive(false);
 
 
         cardController = FindObjectOfType<CardGameController>();
@@ -60,6 +68,8 @@ public class GameController : MonoBehaviour
         exitButton.onClick.AddListener(GoToMainMenu);
 
         timerText.text = maxTime.ToString("F0");
+
+        HomeButton.onClick.AddListener(ReturnToMainMenu);
     }
 
     void Update()
@@ -263,7 +273,10 @@ public class GameController : MonoBehaviour
 
         cardController.gamePuzzles = shuffledCards;
     }
-
+    public void StopTimer()
+    {
+        isGameRunning = false; // 게임 진행 상태 중지
+    }
     public void ResetGameState()
     {
         // 카드 선택 상태 초기화
@@ -286,6 +299,14 @@ public class GameController : MonoBehaviour
 
         //  ShuffleCards()가 이제 제대로 호출됨!
         ShuffleCards();
+    }
+
+    void ReturnToMainMenu()
+    {
+        successPanel.SetActive(false); // 성공 패널 비활성화
+        inGame.SetActive(false); // 게임 화면 비활성화 (메인 화면으로 전환)
+
+        ResetGameState(); // 게임 상태 초기화
     }
 
 }
