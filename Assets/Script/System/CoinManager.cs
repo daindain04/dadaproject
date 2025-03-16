@@ -6,9 +6,10 @@ public class CoinManager : MonoBehaviour
     public static CoinManager instance; // 싱글톤 패턴
 
     [Header("코인 UI")]
-    public TextMeshProUGUI coinText;
+    public TextMeshProUGUI[] coinTexts; // 여러 개의 코인 UI를 지원하도록 배열로 변경
 
     private int playerCoins;
+
 
     private void Awake()
     {
@@ -70,12 +71,15 @@ public class CoinManager : MonoBehaviour
         }
     }
 
-    // UI 업데이트
+    // 여러 개의 UI 업데이트
     private void UpdateCoinUI()
     {
-        if (coinText != null)
+        foreach (TextMeshProUGUI coinText in coinTexts)
         {
-            coinText.text = playerCoins.ToString();
+            if (coinText != null)
+            {
+                coinText.text = playerCoins.ToString();
+            }
         }
     }
 }
