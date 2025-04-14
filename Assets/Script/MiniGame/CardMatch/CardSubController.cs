@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
 {
     [Header("타이머 관련")]
     public Slider timerSlider;
-    public float maxTime = 30f;
+    public float maxTime = 55f;
     private float timeLeft;
     private bool isGameRunning = false;
 

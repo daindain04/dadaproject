@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
+
+    private Dictionary<GameObject, GameObject> furnitureReplacementMap = new Dictionary<GameObject, GameObject>();
+
     [Header("Shop UI")]
     public GameObject shopPanel;
     public Button shopButton;
@@ -34,13 +37,15 @@ public class ShopManager : MonoBehaviour
 
 
     public static ShopManager instance;
- 
+
+    private ShopItem currentShopItem;
+
 
     private List<GameObject> purchasedFurniture = new List<GameObject>();
 
     private void Awake()
     {
-        if (instance == null) instance = this;
+        if (instance == null) { instance = this; }
 
         shopPages = new GameObject[] { mainRoomPage, FoodPage, toyPage, closetPage };
 
@@ -52,6 +57,8 @@ public class ShopManager : MonoBehaviour
         {
             shopPanel.SetActive(false);
         }
+
+      
     }
 
     private void Start()
@@ -126,6 +133,76 @@ public class ShopManager : MonoBehaviour
         foreach (GameObject scroll in scrollViews)
         {
             scroll.SetActive(scroll == scrollViewToShow);
+        }
+    }
+
+    // 기존 가구와 새로운 가구를 등록하는 함수
+    public void RegisterFurnitureReplacement(GameObject oldFurniture, GameObject newFurniture)
+    {
+        if (!furnitureReplacementMap.ContainsKey(oldFurniture))
+        {
+            furnitureReplacementMap.Add(oldFurniture, newFurniture);
+            newFurniture.SetActive(false); // 새로운 가구는 처음에는 숨김 상태로 시작
+        }
+    }
+
+    // 가구를 교체하는 함수
+    public void ReplaceFurniture(GameObject oldFurniture)
+    {
+
+        if (oldFurniture != null && furnitureReplacementMap.ContainsKey(oldFurniture))
+        {
+            GameObject newFurniture = furnitureReplacementMap[oldFurniture];
+
+            //  특정 가구만 비활성화하고 새 가구만 활성화
+            if (oldFurniture.activeSelf)
+            {
+                oldFurniture.SetActive(false);
+                newFurniture.SetActive(true);
+
+                Debug.Log($"가구 교체 완료: {oldFurniture.name} -> {newFurniture.name}");
+            }
+            else
+            {
+                Debug.LogWarning($"이미 비활성화된 가구입니다: {oldFurniture.name}");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"교체할 가구가 등록되지 않았거나 존재하지 않습니다: {oldFurniture}");
+        }
+    }
+    
+    public void AddNewFurniture(GameObject newFurniture)
+    {
+        if (newFurniture != null)
+        {
+            GameObject newObject = Instantiate(newFurniture, newFurniture.transform.position, Quaternion.identity);
+            newObject.SetActive(true);
+            Debug.Log($"{newObject.name} 가구가 추가되었습니다!");
+        }
+        else
+        {
+            Debug.LogWarning("추가할 가구가 설정되지 않았습니다.");
+        }
+    }
+    public bool IsFurnitureRegistered(GameObject oldFurniture)
+    {
+        return furnitureReplacementMap.ContainsKey(oldFurniture);
+    }
+
+    public void SetCurrentFurniture(ShopItem shopItem)
+    {
+        currentShopItem = shopItem;
+    }
+
+    public void ConfirmPurchase()
+    {
+        if (currentShopItem != null)
+        {
+            currentShopItem.PurchaseItem();
+            currentShopItem = null; //  구매 후 초기화
+
         }
     }
 }

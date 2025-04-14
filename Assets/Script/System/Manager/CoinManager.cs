@@ -13,7 +13,7 @@ public class CoinManager : MonoBehaviour
 
     private void Awake()
     {
-        // 싱글톤 설정
+        PlayerPrefs.DeleteKey("PlayerCoins"); //  기존 코인 데이터 삭제 (테스트용)
         if (instance == null)
         {
             instance = this;
@@ -23,7 +23,6 @@ public class CoinManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         DontDestroyOnLoad(gameObject);
     }
 
@@ -42,7 +41,7 @@ public class CoinManager : MonoBehaviour
     // 코인 불러오기
     private void LoadCoins()
     {
-        playerCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
+        playerCoins = PlayerPrefs.GetInt("PlayerCoins", 1000);
         UpdateCoinUI();
     }
 

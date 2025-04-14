@@ -3,36 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\github\\dadaproject\\assets\\script\\system\\shopitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\system\\shopitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\system\\manager\\roomchangemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\system\\manager\\roomchangemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\system\\furnituremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\system\\furnituremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\github\\dadaproject\\assets\\script\\system\\manager\\gemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\system\\manager\\gemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\system\\shopmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\system\\shopmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\system\\coinmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\system\\coinmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\system\\gamedatamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\system\\gamedatamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\system\\manager\\coinmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\system\\manager\\coinmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\cardmatch\\cardsubcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\minigame\\cardmatch\\cardsubcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\cardmatch\\add buttons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\minigame\\cardmatch\\add buttons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\cardmatch\\cardgamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\minigame\\cardmatch\\cardgamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\mchai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\mchai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\system\\shopitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\system\\shopitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\system\\shopmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\system\\shopmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\CapybaraNameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\System\\CapybaraNameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\FurnitureManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\System\\FurnitureManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\CoinManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\System\\CoinManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,104 +54,141 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ShopItem.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\ShopItem.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\System\\ShopItem.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\ShopItem.cs",
-              "RelativeToolTip": "Assets\\Script\\System\\ShopItem.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAAwBYAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "GemManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\Manager\\GemManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\System\\Manager\\GemManager.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\Manager\\GemManager.cs",
+              "RelativeToolTip": "Assets\\Script\\System\\Manager\\GemManager.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAYwEEAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T12:44:16.139Z",
+              "WhenOpened": "2025-04-05T14:32:04.308Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FurnitureManager.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\FurnitureManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\System\\FurnitureManager.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\FurnitureManager.cs",
-              "RelativeToolTip": "Assets\\Script\\System\\FurnitureManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "CoinManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\Manager\\CoinManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\System\\Manager\\CoinManager.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\Manager\\CoinManager.cs",
+              "RelativeToolTip": "Assets\\Script\\System\\Manager\\CoinManager.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAUwFQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T12:32:14.578Z"
+              "WhenOpened": "2025-04-04T16:19:16.808Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ShopManager.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\ShopManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\System\\ShopManager.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\ShopManager.cs",
-              "RelativeToolTip": "Assets\\Script\\System\\ShopManager.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAIwF8AAAAFAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "RoomChangeManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\Manager\\RoomChangeManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\System\\Manager\\RoomChangeManager.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\Manager\\RoomChangeManager.cs",
+              "RelativeToolTip": "Assets\\Script\\System\\Manager\\RoomChangeManager.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAwIMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T08:57:56.349Z"
+              "WhenOpened": "2025-04-01T15:17:36.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CapybaraNameManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\CapybaraNameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\System\\CapybaraNameManager.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\CapybaraNameManager.cs",
+              "RelativeToolTip": "Assets\\Script\\System\\CapybaraNameManager.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAADwvxAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T14:50:07.205Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "GameDataManager.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\GameDataManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\System\\GameDataManager.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\GameDataManager.cs",
-              "RelativeToolTip": "Assets\\Script\\System\\GameDataManager.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAADwv3AAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T08:39:53.78Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CoinManager.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\CoinManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\System\\CoinManager.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\CoinManager.cs",
-              "RelativeToolTip": "Assets\\Script\\System\\CoinManager.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAiwFQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T15:05:18.66Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CardSubController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\CardSubController.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\CardMatch\\CardSubController.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\CardSubController.cs",
-              "RelativeToolTip": "Assets\\Script\\MiniGame\\CardMatch\\CardSubController.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAMwC0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T08:48:21.793Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "CardGameController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\CardGameController.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\CardMatch\\CardGameController.cs",
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\CardGameController.cs",
               "RelativeToolTip": "Assets\\Script\\MiniGame\\CardMatch\\CardGameController.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAYwJgAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAiwEcAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T14:54:37.718Z"
+              "WhenOpened": "2025-03-25T13:33:22.601Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FurnitureManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\FurnitureManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\System\\FurnitureManager.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\FurnitureManager.cs",
+              "RelativeToolTip": "Assets\\Script\\System\\FurnitureManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T13:32:46.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MchAI.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MchAI.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\MchAI.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MchAI.cs",
+              "RelativeToolTip": "Assets\\Script\\MchAI.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAiwHwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T13:11:59.909Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CardSubController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\CardSubController.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\CardMatch\\CardSubController.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\CardSubController.cs",
+              "RelativeToolTip": "Assets\\Script\\MiniGame\\CardMatch\\CardSubController.cs",
+              "ViewState": "AgIAABcBAAAAAAAAAAA+wCYBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T13:07:03.735Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CoinManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\CoinManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\System\\CoinManager.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\CoinManager.cs",
+              "RelativeToolTip": "Assets\\Script\\System\\CoinManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T15:04:18.103Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Add Buttons.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\Add Buttons.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\CardMatch\\Add Buttons.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\Add Buttons.cs",
-              "RelativeToolTip": "Assets\\Script\\MiniGame\\CardMatch\\Add Buttons.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
+              "Title": "ShopItem.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\ShopItem.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\System\\ShopItem.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\ShopItem.cs",
+              "RelativeToolTip": "Assets\\Script\\System\\ShopItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T14:36:37.16Z"
+              "WhenOpened": "2025-03-22T14:06:37.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ShopManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\ShopManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\System\\ShopManager.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\ShopManager.cs",
+              "RelativeToolTip": "Assets\\Script\\System\\ShopManager.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAgwJwAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T14:06:00.834Z"
             }
           ]
         }

@@ -8,8 +8,8 @@ using TMPro;
 public class CapybaraNameManager : MonoBehaviour
 {
     public TMP_InputField nameInputField;  // 입력창
-    public TMP_Text nameDisplayText;  // 이름 표시
-    public TMP_Text warningText;  // 경고 메시지 표시
+    
+ 
     public GameObject NamePanel; // 이름설정창
 
     private const int MAX_NAME_LENGTH = 10;  // 최대 10글자
@@ -20,13 +20,13 @@ public class CapybaraNameManager : MonoBehaviour
 
         NamePanel.SetActive(false);
 
-        warningText.text = "";  // 초기화
+    
 
         // 저장된 이름 불러오기
         if (PlayerPrefs.HasKey(PLAYER_PREFS_KEY))
         {
             string savedName = PlayerPrefs.GetString(PLAYER_PREFS_KEY);
-            nameDisplayText.text = $"Capybara name : {savedName}";
+           
             nameInputField.text = savedName;  // 입력창에도 기존 이름 표시
         }
     }
@@ -50,20 +50,18 @@ public class CapybaraNameManager : MonoBehaviour
         // 한글과 영어만 포함하는지 검사
         if (!IsValidName(inputName))
         {
-            warningText.text = "이름은 한글과 영어만 사용할 수 있습니다!";
+           
             return;
         }
 
         // 이름 길이 제한 검사
         if (inputName.Length > MAX_NAME_LENGTH)
         {
-            warningText.text = $"이름은 최대 {MAX_NAME_LENGTH}자까지 가능합니다!";
+            
             return;
         }
 
-        // 이름 저장 및 UI 업데이트
-        nameDisplayText.text = $"Capybara name : {inputName}";
-        warningText.text = "";
+       
 
         // 이름 저장 (PlayerPrefs 사용)
         PlayerPrefs.SetString(PLAYER_PREFS_KEY, inputName);
