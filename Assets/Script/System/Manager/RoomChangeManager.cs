@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class RoomChangeManager : MonoBehaviour
 {
+
+
     [Header("방 오브젝트")]
     public GameObject mainFurniture;
     public GameObject kitchenFurniture;
@@ -23,9 +25,20 @@ public class RoomChangeManager : MonoBehaviour
     [Header("로딩 시간")]
     public float loadingDuration = 5f;
 
+
+
+    [Header("숨길 UI")]
+    public GameObject buttonGroup;
+    public GameObject coinBar;
+    public GameObject gemBar;
+    public GameObject expBar;
+
     [Header("카피바라 걷기")]
-    public RectTransform capyWalk;
-    public Animator capyAnimator;
+    public RectTransform capyWalkToKitchen;
+    public RectTransform capyWalkToMain;
+
+    public Animator capyAnimatorToKitchen;
+    public Animator capyAnimatorToMain;
 
     // 메인방 → 주방
     public Vector2 walkStartToKitchenPos;
@@ -34,6 +47,8 @@ public class RoomChangeManager : MonoBehaviour
     // 주방 → 메인방
     public Vector2 walkStartToMainPos;
     public Vector2 walkEndToMainPos;
+
+    public MenuToggle menuToggle;
 
     private void Start()
     {
@@ -52,32 +67,47 @@ public class RoomChangeManager : MonoBehaviour
         StartCoroutine(TransitionToMain());
     }
 
+
+    // 메인방 → 주방 이동
+    public void GoToKitchen()
+    {
+        // ... 로딩 처리 등
+        menuToggle.SetRoom("Kitchen");
+    }
+
+    // 주방 → 메인방 이동
+    public void GoToMainRoom()
+    {
+        // ... 로딩 처리 등
+        menuToggle.SetRoom("Main");
+    }
+
+
     private IEnumerator TransitionToKitchen()
     {
+        // 숨길 UI 끄기
+        buttonGroup.SetActive(false);
+        coinBar.SetActive(false);
+        gemBar.SetActive(false);
+        expBar.SetActive(false);
+
         loadingToKitchen.SetActive(true);
         moveToKitchenButton.gameObject.SetActive(false);
         moveToMainButton.gameObject.SetActive(false);
 
-        capyWalk.localScale = new Vector3(-1, 1, 1); // ← 방향
-
-        if (capyWalk != null)
-            capyWalk.anchoredPosition = walkStartToKitchenPos;
-        if (capyAnimator != null)
-            capyAnimator.speed = 0.5f; // 애니메이션 느리게
-        if (loadingBarToKitchen != null)
-            loadingBarToKitchen.fillAmount = 0f;
+        // Kitchen 쪽 카피바라 사용
+        capyWalkToKitchen.localScale = new Vector3(-1, 1, 1);
+        capyWalkToKitchen.anchoredPosition = walkStartToKitchenPos;
+        capyAnimatorToKitchen.speed = 0.5f;
+        loadingBarToKitchen.fillAmount = 0f;
 
         float timer = 0f;
         while (timer < loadingDuration)
         {
             timer += Time.deltaTime;
             float t = Mathf.Clamp01(timer / loadingDuration);
-
-            if (loadingBarToKitchen != null)
-                loadingBarToKitchen.fillAmount = t;
-
-            if (capyWalk != null)
-                capyWalk.anchoredPosition = Vector2.Lerp(walkStartToKitchenPos, walkEndToKitchenPos, t);
+            loadingBarToKitchen.fillAmount = t;
+            capyWalkToKitchen.anchoredPosition = Vector2.Lerp(walkStartToKitchenPos, walkEndToKitchenPos, t);
 
             yield return null;
         }
@@ -86,38 +116,39 @@ public class RoomChangeManager : MonoBehaviour
         kitchenFurniture.SetActive(true);
         loadingToKitchen.SetActive(false);
 
+        buttonGroup.SetActive(true);
+        coinBar.SetActive(true);
+        gemBar.SetActive(true);
+        expBar.SetActive(true);
+
         UpdateButtonStates();
+        GoToKitchen();
     }
 
     private IEnumerator TransitionToMain()
     {
+        buttonGroup.SetActive(false);
+        coinBar.SetActive(false);
+        gemBar.SetActive(false);
+        expBar.SetActive(false);
+
         loadingToMain.SetActive(true);
         moveToKitchenButton.gameObject.SetActive(false);
         moveToMainButton.gameObject.SetActive(false);
 
-        //  오른쪽에서 왼쪽으로 걷기
-        capyWalk.localScale = new Vector3(1, 1, 1); // 왼쪽 방향
-
-        if (capyWalk != null)
-            capyWalk.anchoredPosition = walkStartToMainPos; // 오른쪽에서 출발
-
-        if (capyAnimator != null)
-            capyAnimator.speed = 0.5f;
-
-        if (loadingBarToMain != null)
-            loadingBarToMain.fillAmount = 0f;
+        // Main 쪽 카피바라 사용
+        capyWalkToMain.localScale = new Vector3(1, 1, 1);
+        capyWalkToMain.anchoredPosition = walkStartToMainPos;
+        capyAnimatorToMain.speed = 0.5f;
+        loadingBarToMain.fillAmount = 0f;
 
         float timer = 0f;
         while (timer < loadingDuration)
         {
             timer += Time.deltaTime;
             float t = Mathf.Clamp01(timer / loadingDuration);
-
-            if (loadingBarToMain != null)
-                loadingBarToMain.fillAmount = t;
-
-            if (capyWalk != null)
-                capyWalk.anchoredPosition = Vector2.Lerp(walkStartToMainPos, walkEndToMainPos, t); // 역방향으로 이동
+            loadingBarToMain.fillAmount = t;
+            capyWalkToMain.anchoredPosition = Vector2.Lerp(walkStartToMainPos, walkEndToMainPos, t);
 
             yield return null;
         }
@@ -126,7 +157,13 @@ public class RoomChangeManager : MonoBehaviour
         mainFurniture.SetActive(true);
         loadingToMain.SetActive(false);
 
+        buttonGroup.SetActive(true);
+        coinBar.SetActive(true);
+        gemBar.SetActive(true);
+        expBar.SetActive(true);
+
         UpdateButtonStates();
+        GoToMainRoom();
     }
 
     private void UpdateButtonStates()
