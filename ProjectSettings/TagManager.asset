@@ -54,3 +54,9 @@ TagManager:
   - name: New Layer 4
     uniqueID: 3882099145
     locked: 0
+  - name: Board
+    uniqueID: 236078737
+    locked: 0
+  - name: Candy
+    uniqueID: 2805836133
+    locked: 0
