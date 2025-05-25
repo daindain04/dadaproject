@@ -6,40 +6,82 @@ public class MiniGameUIManager : MonoBehaviour
 {
     public GameObject gameChoosePanel;
     public GameObject cardDifficultyPanel;
+    public GameObject BlockMatchDifficultyPanel;
     public GameObject inGamePanel;
 
     public CardGameManager gameController;
-    public GameSettings easySetting;
-    public GameSettings normalSetting;
-    public GameSettings hardSetting;
+    public GameSettings CardEasySetting;
+    public GameSettings CardNormalSetting;
+    public GameSettings CardHardSetting;
 
+    public GameObject candyCrushEasy;
+    public GameObject candyCrushNormal;
+    public GameObject candyCrushHard;
+
+    public CandyCrushManager candyCrushEasyManager;
+    public CandyCrushManager candyCrushNormalManager;
+    public CandyCrushManager candyCrushHardManager;
+
+    // 카드게임 관련---------------------------------------
     public void OnCardGameButtonClicked()
     {
         gameChoosePanel.SetActive(false);
         cardDifficultyPanel.SetActive(true);
     }
 
-    public void OnEasyButtonClicked()
+    public void OnCardEasyButtonClicked()
     {
         cardDifficultyPanel.SetActive(false);
         inGamePanel.SetActive(true);
 
-        gameController.InitializeGame(easySetting);
+        gameController.InitializeGame(CardEasySetting);
     }
 
-    public void OnNormalButtonClicked()
+    public void OnCardNormalButtonClicked()
     {
         cardDifficultyPanel.SetActive(false);
         inGamePanel.SetActive(true);
 
-        gameController.InitializeGame(normalSetting);
+        gameController.InitializeGame(CardNormalSetting);
     }
 
-    public void OnHardButtonClicked()
+    public void OnCardHardButtonClicked()
     {
         cardDifficultyPanel.SetActive(false);
         inGamePanel.SetActive(true);
 
-        gameController.InitializeGame(hardSetting);
+        gameController.InitializeGame(CardHardSetting);
+    }
+
+
+    //3매치 게임 관련 --------------------------------------------
+    public void OnMatchGameButtonClicked()
+    {
+        gameChoosePanel.SetActive(false);
+        BlockMatchDifficultyPanel.SetActive(true);
+    }
+
+    public void OnBlockMatchEasyButtonClicked()
+    {
+        BlockMatchDifficultyPanel.SetActive(false);
+        candyCrushEasy.SetActive(true);
+
+        candyCrushEasyManager.currentLevel = 1;
+    }
+
+    public void OnBlockMatchNomalButtonClicked()
+    {
+        BlockMatchDifficultyPanel.SetActive(false);
+        candyCrushNormal.SetActive(true);
+
+        candyCrushNormalManager.currentLevel = 2;
+    }
+
+    public void OnBlockMatchHardButtonClicked()
+    {
+        BlockMatchDifficultyPanel.SetActive(false);
+        candyCrushHard.SetActive(true);
+
+        candyCrushHardManager.currentLevel = 3;
     }
 }

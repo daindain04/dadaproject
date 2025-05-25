@@ -12,4 +12,9 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void LoadMiniGameScene()
+    {
+        SceneManager.LoadScene("MiniGame");
+    }
 }
