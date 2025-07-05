@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class CandyCrushManager : MonoBehaviour
 {
-
+    //½Ì±ÛÅæ 
     public static CandyCrushManager instance = null;
 
     public int currentLevel = 1;
@@ -180,6 +180,9 @@ public class CandyCrushManager : MonoBehaviour
 
     private void CandySuccess()
     {
+
+        successPanel.SetActive(true);
+
         // º¸»ó Áö±Þ
         switch (currentLevel)
         {

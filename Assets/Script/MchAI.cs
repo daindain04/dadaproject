@@ -7,7 +7,7 @@ public class MchAI : MonoBehaviour
     public float speed = 1f; //  천천히 이동
     public float changeDirectionTime = 3f; // 방향 전환 시간
     public float idleTime = 2f; // 랜덤 대기 시간
-    public LayerMask obstacleLayer; // 장애물 감지 Layer (메트리스 & 의자)
+    public LayerMask obstacleLayer; 
 
     private Vector2 movementDirection;
     private float timer;
@@ -15,7 +15,7 @@ public class MchAI : MonoBehaviour
     private bool isIdle = false; // 대기 상태 여부
     private Rigidbody2D rb;
     private Animator animator;
-    private float centerY; // 화면 중앙 Y 좌표
+    private float centerY; 
 
     void Start()
     {

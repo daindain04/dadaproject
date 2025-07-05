@@ -1,50 +1,44 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class Card : MonoBehaviour
+[RequireComponent(typeof(Button))]
+public class Card : MonoBehaviour, IPointerClickHandler
 {
-    public int id;
-    public Image frontImage;
-    public Sprite frontSprite;
-    public GameObject frontGO;
-    public GameObject backGO;
+    public Image front;
+    public Image back;
 
-    private CardGameManager gameManager;
-    private bool isMatched = false;
+    public Sprite Face { get; private set; }
+    System.Action<Card> onClick;
+    bool isMatched;
 
-    public void Init(CardGameManager manager, int cardId, Sprite sprite)
+    public void Init(Sprite face, System.Action<Card> callback)
     {
-        gameManager = manager;
-        id = cardId;
-        frontSprite = sprite;
-        frontImage.sprite = sprite;
+        Face = face;
+        front.sprite = face;
+        onClick = callback;
+        back.gameObject.SetActive(true);
+        front.gameObject.SetActive(false);
+        isMatched = false;
     }
 
-    public void OnClick()
+    public void OnPointerClick(PointerEventData e)
     {
-        if (isMatched || !gameManager.CanReveal(this)) return;
-        Reveal();
+        if (isMatched || !back.gameObject.activeSelf) return;
+        back.gameObject.SetActive(false);
+        front.gameObject.SetActive(true);
+        onClick?.Invoke(this);
     }
 
-    public void Reveal()
+    public void FlipBack()
     {
-        frontGO.SetActive(true);
-        backGO.SetActive(false);
-    }
-
-    public void Hide()
-    {
-        frontGO.SetActive(false);
-        backGO.SetActive(true);
+        if (isMatched) return;
+        back.gameObject.SetActive(true);
+        front.gameObject.SetActive(false);
     }
 
     public void SetMatched()
     {
         isMatched = true;
-    }
-
-    public bool IsMatched()
-    {
-        return isMatched;
     }
 }

@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - PuzzleButton
+  - Obstacle
+  - Ground
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -59,4 +62,16 @@ TagManager:
     locked: 0
   - name: Candy
     uniqueID: 2805836133
+    locked: 0
+  - name: CapyRunBackGround
+    uniqueID: 3505370633
+    locked: 0
+  - name: CapyRunGround
+    uniqueID: 1339442001
+    locked: 0
+  - name: Object
+    uniqueID: 747269833
+    locked: 0
+  - name: Character
+    uniqueID: 3500228031
     locked: 0

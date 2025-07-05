@@ -1,28 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MiniGameUIManager : MonoBehaviour
 {
+    [Header("공통 패널")]
     public GameObject gameChoosePanel;
+
+    // ────────────────────────────────────────────
+    [Header("카드 게임 관련")]
     public GameObject cardDifficultyPanel;
+    public GameObject cardEasyPanel;
+    public GameObject cardNormalPanel;
+    public GameObject cardHardPanel;
+    public CardGameController cardEasyManager;
+    public CardGameController cardNormalManager;
+    public CardGameController cardHardManager;
+    // ────────────────────────────────────────────
+
+    [Header("3매치 게임 관련")]
     public GameObject BlockMatchDifficultyPanel;
-    public GameObject inGamePanel;
-
-    public CardGameManager gameController;
-    public GameSettings CardEasySetting;
-    public GameSettings CardNormalSetting;
-    public GameSettings CardHardSetting;
-
     public GameObject candyCrushEasy;
     public GameObject candyCrushNormal;
     public GameObject candyCrushHard;
-
     public CandyCrushManager candyCrushEasyManager;
     public CandyCrushManager candyCrushNormalManager;
     public CandyCrushManager candyCrushHardManager;
 
-    // 카드게임 관련---------------------------------------
+    [Header("달리기 게임 관련")]
+    public GameObject capyDifficultyPanel;
+    public GameObject capyRunEasy;
+    public GameObject capyRunNormal;
+    public GameObject capyRunHard;
+    public CapybaraGameManager capyRunEasyManager;
+    public CapybaraGameManager capyRunNormalManager;
+    public CapybaraGameManager capyRunHardManager;
+
+    // ================= 카드게임 이벤트 =================
     public void OnCardGameButtonClicked()
     {
         gameChoosePanel.SetActive(false);
@@ -32,29 +44,25 @@ public class MiniGameUIManager : MonoBehaviour
     public void OnCardEasyButtonClicked()
     {
         cardDifficultyPanel.SetActive(false);
-        inGamePanel.SetActive(true);
-
-        gameController.InitializeGame(CardEasySetting);
+        cardEasyPanel.SetActive(true);
+        cardEasyManager.InitializeGame();
     }
 
     public void OnCardNormalButtonClicked()
     {
         cardDifficultyPanel.SetActive(false);
-        inGamePanel.SetActive(true);
-
-        gameController.InitializeGame(CardNormalSetting);
+        cardNormalPanel.SetActive(true);
+        cardNormalManager.InitializeGame();
     }
 
     public void OnCardHardButtonClicked()
     {
         cardDifficultyPanel.SetActive(false);
-        inGamePanel.SetActive(true);
-
-        gameController.InitializeGame(CardHardSetting);
+        cardHardPanel.SetActive(true);
+        cardHardManager.InitializeGame();
     }
 
-
-    //3매치 게임 관련 --------------------------------------------
+    // ================ 3매치 게임 이벤트 ================
     public void OnMatchGameButtonClicked()
     {
         gameChoosePanel.SetActive(false);
@@ -65,15 +73,13 @@ public class MiniGameUIManager : MonoBehaviour
     {
         BlockMatchDifficultyPanel.SetActive(false);
         candyCrushEasy.SetActive(true);
-
         candyCrushEasyManager.currentLevel = 1;
     }
 
-    public void OnBlockMatchNomalButtonClicked()
+    public void OnBlockMatchNormalButtonClicked()
     {
         BlockMatchDifficultyPanel.SetActive(false);
         candyCrushNormal.SetActive(true);
-
         candyCrushNormalManager.currentLevel = 2;
     }
 
@@ -81,7 +87,34 @@ public class MiniGameUIManager : MonoBehaviour
     {
         BlockMatchDifficultyPanel.SetActive(false);
         candyCrushHard.SetActive(true);
-
         candyCrushHardManager.currentLevel = 3;
+    }
+
+    // =============== 달리기 게임 이벤트 ================
+    public void OnCapyRunGameButtonClicked()
+    {
+        gameChoosePanel.SetActive(false);
+        capyDifficultyPanel.SetActive(true);
+    }
+
+    public void OnCapyRunEasyButtonClicked()
+    {
+        capyDifficultyPanel.SetActive(false);
+        capyRunEasy.SetActive(true);
+        capyRunEasyManager.currentDifficulty = CapybaraGameManager.Difficulty.Easy;
+    }
+
+    public void OnCapyRunNormalButtonClicked()
+    {
+        capyDifficultyPanel.SetActive(false);
+        capyRunNormal.SetActive(true);
+        capyRunNormalManager.currentDifficulty = CapybaraGameManager.Difficulty.Normal;
+    }
+
+    public void OnCapyRunHardButtonClicked()
+    {
+        capyDifficultyPanel.SetActive(false);
+        capyRunHard.SetActive(true);
+        capyRunHardManager.currentDifficulty = CapybaraGameManager.Difficulty.Hard;
     }
 }

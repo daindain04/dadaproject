@@ -4,53 +4,46 @@ using TMPro;
 
 public class CardUIManager : MonoBehaviour
 {
-    [Header("UI 패널")]
-    public GameObject gameChoosePanel;
-    public GameObject inGamePanel;
-    public GameObject successPanel;
+    [Header("UI 연결 (한 번만 드래그)")]
+    public Slider timerSlider;
+    public TMP_Text timerText;
+    public GameObject stopButton;
+    public GameObject restartButton;
+    public GameObject homeButton;
+
+    public GameObject homeConfirmPanel;
+    public GameObject rewardPanel;
     public GameObject failPanel;
 
-    [Header("UI 요소")]
-    public Image backgroundImage;
-    public Image timerFillImage;
-    public Slider timerSlider;
-    public TextMeshProUGUI timerText;
-    public TextMeshProUGUI rewardText;
-
-    public void ApplyDifficultyStyle(GameSettings setting)
+    void Awake()
     {
-        Debug.Log("ApplyDifficultyStyle called!"); // 이거 넣어보세요
-        backgroundImage.sprite = setting.backgroundImage;
-        timerFillImage.color = setting.uiAccentColor;
-
-        timerSlider.maxValue = setting.timeLimit;
-        timerSlider.value = setting.timeLimit;
-    }
-
-    public void ShowInGamePanel()
-    {
-        gameChoosePanel.SetActive(false);
-        successPanel.SetActive(false);
+        restartButton.SetActive(false);
+        rewardPanel.SetActive(false);
         failPanel.SetActive(false);
-        inGamePanel.SetActive(true);
+        homeConfirmPanel.SetActive(false);
     }
 
-    public void UpdateTimer(float time)
+    public void UpdateTimer(float remaining, float maxTime)
     {
-        timerSlider.value = time;
-        timerText.text = Mathf.Ceil(time).ToString("F0");
+        timerSlider.maxValue = maxTime;
+        timerSlider.value = remaining;
+        timerText.text = Mathf.CeilToInt(remaining).ToString();
     }
 
-    public void ShowSuccessPanel(int coins)
+    public void ShowPaused()
     {
-        inGamePanel.SetActive(false);
-        successPanel.SetActive(true);
-        rewardText.text = $"{coins} 코인을 획득했습니다!";
+        stopButton.SetActive(false);
+        restartButton.SetActive(true);
+    }
+    public void ShowRunning()
+    {
+        stopButton.SetActive(true);
+        restartButton.SetActive(false);
     }
 
-    public void ShowFailPanel()
-    {
-        inGamePanel.SetActive(false);
-        failPanel.SetActive(true);
-    }
+    public void ToggleHomeConfirm(bool show)
+        => homeConfirmPanel.SetActive(show);
+
+    public void ShowReward() => rewardPanel.SetActive(true);
+    public void ShowFail() => failPanel.SetActive(true);
 }
