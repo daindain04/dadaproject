@@ -34,6 +34,12 @@ public class MiniGameUIManager : MonoBehaviour
     public CapybaraGameManager capyRunNormalManager;
     public CapybaraGameManager capyRunHardManager;
 
+    [Header("스피디카피 관련")]
+    public GameObject SpeedyDifficultyPanel;
+    public GameObject SpeedyCapyEasy;
+    public GameObject SpeedyCapyNormal;
+    public GameObject SpeedyCapyHard;
+
     // ================= 카드게임 이벤트 =================
     public void OnCardGameButtonClicked()
     {
@@ -116,5 +122,30 @@ public class MiniGameUIManager : MonoBehaviour
         capyDifficultyPanel.SetActive(false);
         capyRunHard.SetActive(true);
         capyRunHardManager.currentDifficulty = CapybaraGameManager.Difficulty.Hard;
+    }
+
+    // =============== 스피디카피 게임 이벤트 ================
+    public void OnSpeedyCapyGameButtonClicked()
+    {
+        gameChoosePanel.SetActive(false);
+        SpeedyDifficultyPanel.SetActive(true);
+    }
+
+    public void OnSpeedyCapyEasyButtonClicked()
+    {
+        SpeedyDifficultyPanel.SetActive(false);
+        SpeedyCapyEasy.SetActive(true);
+    }
+
+    public void OnSpeedyCapyNormalButtonClicked()
+    {
+        SpeedyDifficultyPanel.SetActive(false);
+        SpeedyCapyNormal.SetActive(true);
+    }
+
+    public void OnSpeedyCapyHardButtonClicked()
+    {
+        SpeedyDifficultyPanel.SetActive(false);
+        SpeedyCapyHard.SetActive(true);
     }
 }

@@ -83,7 +83,7 @@ public class CandyCrushManager : MonoBehaviour
     {
         if (currentLevel == 1)
         {
-            remainMove = 20;
+            remainMove = 10;
         }
         else if (currentLevel == 2)
         {
@@ -91,7 +91,7 @@ public class CandyCrushManager : MonoBehaviour
         }
         else
         {
-            remainMove = 10;
+            remainMove = 20;
         }
     }
 
