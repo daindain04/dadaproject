@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7202976300814829280}
   - component: {fileID: 7202976300814829287}
   - component: {fileID: 178007706108794130}
+  - component: {fileID: 3906147594079522981}
   m_Layer: 0
   m_Name: Capyrun_Obstacle 2
   m_TagString: Obstacle
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 747269833
   m_SortingLayer: 9
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c5f78a8bad8dec94b8d7a3db5fdb3355, type: 3}
+  m_Sprite: {fileID: -1889474133, guid: e8717bc0f3ccde941b7bfacd30d9ad48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,3 +135,24 @@ CircleCollider2D:
   m_Offset: {x: 0.051725388, y: 0.055704117}
   serializedVersion: 2
   m_Radius: 0.6829934
+--- !u!95 &3906147594079522981
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202976300814829286}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7bdf2f6496e0a84a98a784700794c62, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
