@@ -54,11 +54,12 @@ public class Capybara : MonoBehaviour
         animator.SetBool("isJumping", true);
     }
 
-    private void SlideBegin() {
+    private void SlideBegin()
+    {
         isGrounded = false;
         isSliding = true;
         slideStartTime = Time.time;
-        
+
         initPosY = transform.position.y;
         transform.position = new Vector3(transform.position.x, slidePosY, transform.position.z);
 
@@ -67,8 +68,11 @@ public class Capybara : MonoBehaviour
 
         boxCollider.offset = slideBoxColliderOffset;
         boxCollider.size = slideBoxColliderSize;
-        
+
         animator.SetBool("isSliding", true);
+
+        //  슬라이딩 횟수 차감 (GameManager에게 알림)
+        CapybaraGameManager.instance.HandleSlideAction();
     }
 
     private void SlideEnd() {

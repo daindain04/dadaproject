@@ -13,7 +13,7 @@ public enum GameState
     GameOver
 }
 
-public class CapySaysGameController : MonoBehaviour
+public class CapySaysGameManager : MonoBehaviour
 {
     [Header("Game Settings (Adjust in Inspector)")]
     [SerializeField] private int startSequenceLength = 3;
@@ -55,8 +55,6 @@ public class CapySaysGameController : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log($"[CapySays] 버튼 개수 = {buttons.Length}");
-        Debug.Log($"[CapySays] 슬롯 개수 = {inputSlots.Length}");
 
         // Bind button callbacks dynamically
         for (int i = 0; i < buttons.Length; i++)

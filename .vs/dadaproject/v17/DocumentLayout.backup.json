@@ -3,8 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\github\\dadaproject\\assets\\script\\minigame\\minigameuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\github\\dadaproject\\assets\\script\\minigame\\capysays\\capysaysgamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\minigame\\capysays\\capysaysgamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\minigameuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\minigame\\minigameuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\capysays\\capysaysgamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\script\\minigame\\capysays\\capysaysgamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\cardmatch\\cardgamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\minigame\\cardmatch\\cardgamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\cardmatch\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\minigame\\cardmatch\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\cardmatch\\autogridsizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\minigame\\cardmatch\\autogridsizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\candycrush\\candycrushmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\minigame\\candycrush\\candycrushmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Scripts\\MenuController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\MenuController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Scripts\\GameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\GameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\runningcapy\\capybarabackgroundscroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\minigame\\runningcapy\\capybarabackgroundscroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\speedycapy\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,36 +63,8 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\MiniGame\\SpeedyCapy\\MenuController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\runningcapy\\capybarabackgroundscroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\minigame\\runningcapy\\capybarabackgroundscroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Scripts\\GameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\GameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Scripts\\MenuController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\MenuController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\candycrush\\candycrushmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\minigame\\candycrush\\candycrushmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\cardmatch\\cardgamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\minigame\\cardmatch\\cardgamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\cardmatch\\carduimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\minigame\\cardmatch\\carduimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\cardmatch\\autogridsizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\minigame\\cardmatch\\autogridsizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\cardmatch\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\minigame\\cardmatch\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4B9A65D0-A1CB-E50A-8136-D20F5C5D685B}|Assembly-CSharp.csproj|C:\\Users\\user\\Documents\\GitHub\\dadaproject\\assets\\script\\minigame\\cardmatch\\difficultyselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -70,68 +78,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Car.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\SpeedyCapy\\Car.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\SpeedyCapy\\Car.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\SpeedyCapy\\Car.cs",
-              "RelativeToolTip": "Assets\\Script\\MiniGame\\SpeedyCapy\\Car.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "CapySaysGameManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CapySays\\CapySaysGameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\CapySays\\CapySaysGameManager.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CapySays\\CapySaysGameManager.cs",
+              "RelativeToolTip": "Assets\\Script\\MiniGame\\CapySays\\CapySaysGameManager.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAYwDkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T15:53:56.034Z"
+              "WhenOpened": "2025-07-29T11:58:24.015Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MenuController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\SpeedyCapy\\MenuController.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\SpeedyCapy\\MenuController.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\SpeedyCapy\\MenuController.cs",
-              "RelativeToolTip": "Assets\\Script\\MiniGame\\SpeedyCapy\\MenuController.cs",
+              "DocumentIndex": 3,
+              "Title": "CardGameController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\CardGameController.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\CardMatch\\CardGameController.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\CardGameController.cs",
+              "RelativeToolTip": "Assets\\Script\\MiniGame\\CardMatch\\CardGameController.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAIwAwAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T13:30:51.323Z"
+              "WhenOpened": "2025-07-05T13:14:51.631Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "CapybaraBackgroundScroll.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\RunningCapy\\CapybaraBackgroundScroll.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\RunningCapy\\CapybaraBackgroundScroll.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\RunningCapy\\CapybaraBackgroundScroll.cs",
-              "RelativeToolTip": "Assets\\Script\\MiniGame\\RunningCapy\\CapybaraBackgroundScroll.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T10:31:24.949Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Scripts\\GameManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Scripts\\GameManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-06T10:58:37.799Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "MenuController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Scripts\\MenuController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\MenuController.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Scripts\\MenuController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\MenuController.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-06T10:55:50.655Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "CandyCrushManager.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CandyCrush\\CandyCrushManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\CandyCrush\\CandyCrushManager.cs",
@@ -144,6 +120,89 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "MiniGameUIManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\MiniGameUIManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\MiniGameUIManager.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\MiniGameUIManager.cs",
+              "RelativeToolTip": "Assets\\Script\\MiniGame\\MiniGameUIManager.cs",
+              "ViewState": "AgIAAOUAAAAAAAAAAAAowPMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T13:16:06.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Card.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\Card.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\CardMatch\\Card.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\Card.cs",
+              "RelativeToolTip": "Assets\\Script\\MiniGame\\CardMatch\\Card.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAADwvwgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T13:14:26.585Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MenuController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Scripts\\MenuController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MenuController.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Scripts\\MenuController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MenuController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-06T10:55:50.655Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-06T10:58:37.799Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CapybaraBackgroundScroll.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\RunningCapy\\CapybaraBackgroundScroll.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\RunningCapy\\CapybaraBackgroundScroll.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\RunningCapy\\CapybaraBackgroundScroll.cs",
+              "RelativeToolTip": "Assets\\Script\\MiniGame\\RunningCapy\\CapybaraBackgroundScroll.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T10:31:24.949Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MenuController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\SpeedyCapy\\MenuController.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\SpeedyCapy\\MenuController.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\SpeedyCapy\\MenuController.cs",
+              "RelativeToolTip": "Assets\\Script\\MiniGame\\SpeedyCapy\\MenuController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T13:30:51.323Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CapySaysGameController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CapySays\\CapySaysGameController.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\CapySays\\CapySaysGameController.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CapySays\\CapySaysGameController.cs",
+              "RelativeToolTip": "Assets\\Script\\MiniGame\\CapySays\\CapySaysGameController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-19T14:00:24.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\SpeedyCapy\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\SpeedyCapy\\GameManager.cs",
@@ -155,20 +214,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MiniGameUIManager.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\MiniGameUIManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\MiniGameUIManager.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\MiniGameUIManager.cs",
-              "RelativeToolTip": "Assets\\Script\\MiniGame\\MiniGameUIManager.cs",
-              "ViewState": "AgIAAJMAAAAAAAAAAAAYwKoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "AutoGridSizer.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\AutoGridSizer.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\CardMatch\\AutoGridSizer.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\AutoGridSizer.cs",
+              "RelativeToolTip": "Assets\\Script\\MiniGame\\CardMatch\\AutoGridSizer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T13:16:06.826Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-05T14:22:50.08Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 13,
+              "Title": "Car.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\SpeedyCapy\\Car.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\SpeedyCapy\\Car.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\SpeedyCapy\\Car.cs",
+              "RelativeToolTip": "Assets\\Script\\MiniGame\\SpeedyCapy\\Car.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T15:53:56.034Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "StartSceneManager.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\Manager\\StartSceneManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\System\\Manager\\StartSceneManager.cs",
@@ -180,7 +250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "CapybaraNameManager.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\System\\Manager\\CapybaraNameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\System\\Manager\\CapybaraNameManager.cs",
@@ -192,19 +262,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "AutoGridSizer.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\AutoGridSizer.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\CardMatch\\AutoGridSizer.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\AutoGridSizer.cs",
-              "RelativeToolTip": "Assets\\Script\\MiniGame\\CardMatch\\AutoGridSizer.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAADwvyoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T14:22:50.08Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "DifficultySelector.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\DifficultySelector.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\CardMatch\\DifficultySelector.cs",
@@ -216,7 +274,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "CardUIManager.cs",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\CardUIManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\CardMatch\\CardUIManager.cs",
@@ -225,30 +283,6 @@
               "ViewState": "AgIAABMAAAAAAAAAAAAmwDEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-05T13:15:03.971Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CardGameController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\CardGameController.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\CardMatch\\CardGameController.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\CardGameController.cs",
-              "RelativeToolTip": "Assets\\Script\\MiniGame\\CardMatch\\CardGameController.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAAwIIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T13:14:51.631Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Card.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\Card.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\MiniGame\\CardMatch\\Card.cs",
-              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\dadaproject\\Assets\\Script\\MiniGame\\CardMatch\\Card.cs",
-              "RelativeToolTip": "Assets\\Script\\MiniGame\\CardMatch\\Card.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T13:14:26.585Z"
             }
           ]
         }

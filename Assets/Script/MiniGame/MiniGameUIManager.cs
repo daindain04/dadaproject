@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MiniGameUIManager : MonoBehaviour
 {
@@ -37,10 +38,10 @@ public class MiniGameUIManager : MonoBehaviour
     public GameObject SpeedyCapyNormal;
     public GameObject SpeedyCapyHard;
 
-
-
-
-
+    [Header("카피세이즈 게임 관련")]
+    public GameObject capySaysEasy;
+    public GameObject capySaysNormal;
+    public GameObject capySaysHard;
 
     //--------------------------------------------------
 
@@ -242,7 +243,25 @@ public class MiniGameUIManager : MonoBehaviour
                 }
                 break;
 
-                // 추가 게임이 있다면 여기에 case 4: ... 추가
+            case 4: // CapySays
+                switch (difficulty)
+                {
+                    case "Easy":
+                        capySaysEasy.SetActive(true);
+                        break;
+                    case "Normal":
+                        capySaysNormal.SetActive(true);
+                        break;
+                    case "Hard":
+                        capySaysHard.SetActive(true);
+                        break;
+                }
+                break;
+
         }
+    }
+    public void ToMainScene()
+    {
+        SceneManager.LoadScene("Main");
     }
 }
