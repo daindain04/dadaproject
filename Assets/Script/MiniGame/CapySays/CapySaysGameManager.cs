@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,6 +20,7 @@ public class CapySaysGameManager : MonoBehaviour
     [SerializeField] private int targetRounds = 5;
     [SerializeField] private float inputTimeLimit = 4f;
     [SerializeField] private int maxLives = 1;
+    [SerializeField] private float sequenceImageScale = 0.5f;
 
     [Header("UI References")]
     [SerializeField] private TMP_Text roundText;
@@ -28,6 +29,7 @@ public class CapySaysGameManager : MonoBehaviour
 
     [SerializeField] private RectTransform sequenceArea;
     [SerializeField] private GameObject sequenceItemPrefab;
+    [SerializeField] private GameObject curtainImage;  // 커튼 이미지 추가
 
     [SerializeField] private Button[] buttons;            // 9 buttons in the grid
     [SerializeField] private Image[] inputSlots;          // input display slots
@@ -55,6 +57,9 @@ public class CapySaysGameManager : MonoBehaviour
 
     private void Start()
     {
+        // 시작할 때 커튼 활성화
+        if (curtainImage != null)
+            curtainImage.SetActive(true);
 
         // Bind button callbacks dynamically
         for (int i = 0; i < buttons.Length; i++)
@@ -71,7 +76,9 @@ public class CapySaysGameManager : MonoBehaviour
         if (state == GameState.WaitingInput && inputPhaseActive)
         {
             timer -= Time.deltaTime;
-            timerFill.fillAmount = timer / inputTimeLimit;
+            if (timerFill != null)
+                timerFill.fillAmount = timer / inputTimeLimit;
+
             if (timer <= 0f)
             {
                 // Time up
@@ -85,12 +92,17 @@ public class CapySaysGameManager : MonoBehaviour
 
     private IEnumerator PlayGameRoutine()
     {
+        Debug.Log("PlayGameRoutine started!");
+
         // Initialize lives
         livesLeft = maxLives;
         UpdateLivesUI();
+        Debug.Log($"Lives initialized: {livesLeft}");
 
         for (currentRound = 1; currentRound <= targetRounds; currentRound++)
         {
+            Debug.Log($"Starting round {currentRound}");
+
             // Sequence length fixed per game settings
             currentSeqLength = startSequenceLength;
             UpdateRoundUI();
@@ -110,7 +122,7 @@ public class CapySaysGameManager : MonoBehaviour
                 // Show 'Watch the Sequence' message
                 yield return ShowOverlay(showSequenceImage, 1.0f);
 
-                // Play sequence
+                // Play sequence (커튼을 내리고 시퀀스 재생)
                 yield return PlaySequence();
 
                 // Show 'Your Turn' message
@@ -137,6 +149,8 @@ public class CapySaysGameManager : MonoBehaviour
                 }
                 else
                 {
+                    // 실패해도 라운드 클리어로 처리하여 다음 라운드로 진행
+                    roundCleared = true;
                     yield return ShowOverlay(failImage, 1.0f);
                 }
             }
@@ -154,12 +168,21 @@ public class CapySaysGameManager : MonoBehaviour
 
     private IEnumerator PlaySequence()
     {
+        // 시퀀스 시작할 때 커튼 내리기
+        if (curtainImage != null)
+            curtainImage.SetActive(false);
+
         foreach (int idx in currentSequence)
         {
-            // Spawn a sequence item
             GameObject go = Instantiate(sequenceItemPrefab, sequenceArea);
             Image img = go.GetComponent<Image>();
             img.sprite = buttons[idx].image.sprite;
+
+            // RectTransform으로 직접 크기 설정
+            RectTransform rectTransform = go.GetComponent<RectTransform>();
+            float targetSize = 60f * sequenceImageScale; // 기본 크기 60픽셀에 스케일 적용
+            rectTransform.sizeDelta = new Vector2(targetSize, targetSize);
+
             go.transform.localScale = Vector3.zero;
 
             // Pop-in animation
@@ -175,6 +198,10 @@ public class CapySaysGameManager : MonoBehaviour
             Destroy(go);
             yield return new WaitForSeconds(0.1f);
         }
+
+        // 시퀀스 끝날 때 커튼 다시 올리기
+        if (curtainImage != null)
+            curtainImage.SetActive(true);
     }
 
     private IEnumerator ShowOverlay(GameObject messageObj, float duration)
@@ -272,12 +299,12 @@ public class CapySaysGameManager : MonoBehaviour
     private void HandleWin()
     {
         Debug.Log("You Win!");
-        // TODO: Win ó�� (����, ���� ȭ�� ��)
+        // TODO: Win 처리 (보상, 다음 화면 등)
     }
 
     private void HandleGameOver()
     {
         Debug.Log("Game Over");
-        // TODO: Game Over ó�� (��Ʈ����, ���� �޴� ��)
+        // TODO: Game Over 처리 (리트라이, 메인 메뉴 등)
     }
 }

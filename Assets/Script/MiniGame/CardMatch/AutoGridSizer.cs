@@ -1,42 +1,88 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(GridLayoutGroup))]
 public class AutoGridSizer : MonoBehaviour
 {
-    [Tooltip("한 줄에 놓일 카드 개수 (열 수).")]
-    public int columns;
-    [Tooltip("총 카드 개수 (pairsCount * 2).")]
-    public int totalCards;
+    [Header("그리드 설정")]
+    public Vector2 preferredCellSize = new Vector2(100, 150); // 선호하는 카드 크기
+    public Vector2 spacing = new Vector2(10, 10);
+    public int maxColumns = 6; // 최대 열 개수
 
-    GridLayoutGroup grid;
-    RectTransform rt;
+    private GridLayoutGroup gridLayout;
+    private RectTransform rectTransform;
 
     void Awake()
     {
-        grid = GetComponent<GridLayoutGroup>();
-        rt = GetComponent<RectTransform>();
+        gridLayout = GetComponent<GridLayoutGroup>();
+        rectTransform = GetComponent<RectTransform>();
     }
 
-    // 패널이 활성화될 때마다 호출
-    void OnEnable()
+    /// <summary>
+    /// 카드 개수에 따라 그리드를 자동 조정합니다.
+    /// </summary>
+    public void AdjustGrid(int totalCards)
     {
-        ResizeCells();
-        // 강제로 레이아웃 리빌드
-        LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
-    }
+        if (gridLayout == null) return;
 
-    void ResizeCells()
-    {
-        float W = rt.rect.width;
-        float H = rt.rect.height;
-        float sx = grid.spacing.x;
-        float sy = grid.spacing.y;
+        // 최적의 열/행 개수 계산
+        int columns = CalculateOptimalColumns(totalCards);
         int rows = Mathf.CeilToInt((float)totalCards / columns);
 
-        float cellW = (W - sx * (columns - 1)) / columns;
-        float cellH = (H - sy * (rows - 1)) / rows;
+        // 사용 가능한 영역 크기
+        Vector2 availableSize = rectTransform.rect.size;
 
-        grid.cellSize = new Vector2(cellW, cellH);
+        // 스페이싱을 고려한 실제 사용 가능한 크기
+        float usableWidth = availableSize.x - (columns - 1) * spacing.x;
+        float usableHeight = availableSize.y - (rows - 1) * spacing.y;
+
+        // 카드 크기 계산 (비율 유지)
+        float cellWidth = usableWidth / columns;
+        float cellHeight = usableHeight / rows;
+
+        // 원하는 비율 유지 (카드는 보통 세로가 더 김)
+        float preferredRatio = preferredCellSize.y / preferredCellSize.x;
+
+        // 폭 기준으로 높이 조정
+        float calculatedHeight = cellWidth * preferredRatio;
+
+        // 높이가 사용 가능한 공간을 초과하면 높이 기준으로 폭 조정
+        if (calculatedHeight > cellHeight)
+        {
+            cellHeight = usableHeight / rows;
+            cellWidth = cellHeight / preferredRatio;
+        }
+        else
+        {
+            cellHeight = calculatedHeight;
+        }
+
+        // 그리드 레이아웃 설정 적용
+        gridLayout.cellSize = new Vector2(cellWidth, cellHeight);
+        gridLayout.spacing = spacing;
+        gridLayout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+        gridLayout.constraintCount = columns;
+
+        Debug.Log($"Cards: {totalCards}, Grid: {columns}x{rows}, Cell Size: {cellWidth:F1}x{cellHeight:F1}");
+    }
+
+    /// <summary>
+    /// 카드 개수에 따른 최적의 열 개수 계산
+    /// </summary>
+    int CalculateOptimalColumns(int totalCards)
+    {
+        // 카드 개수별 최적화된 레이아웃
+        switch (totalCards)
+        {
+            case <= 6:
+                return Mathf.Min(totalCards, 3); // 1~6장: 최대 3열
+            case <= 12:
+                return 4; // 7~12장: 4열 (3x4 또는 4x3)
+            case <= 20:
+                return 5; // 13~20장: 5열
+            case <= 30:
+                return 6; // 21~30장: 6열
+            default:
+                return maxColumns; // 그 이상: 최대 열 개수
+        }
     }
 }

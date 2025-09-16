@@ -123,15 +123,26 @@ public class CapybaraGameManager : MonoBehaviour
     {
         if (isGameOver) return;
         isGameOver = true;
-
         FindObjectOfType<Capybara>()?.SetGameOver();
         FindObjectOfType<CapybaraObjectSpawner>()?.StopObjectSpawning();
 
         switch (currentDifficulty)
         {
-            case Difficulty.Easy: CoinManager.instance.AddCoins(150); break;
-            case Difficulty.Normal: CoinManager.instance.AddCoins(250); break;
-            case Difficulty.Hard: CoinManager.instance.AddCoins(300); break;
+            case Difficulty.Easy:
+                MoneyManager.Instance.AddCoins(150);
+                MoneyManager.Instance.AddGems(1);
+                MoneyManager.Instance.AddExperience(10);
+                break;
+            case Difficulty.Normal:
+                MoneyManager.Instance.AddCoins(250);
+                MoneyManager.Instance.AddGems(2);
+                MoneyManager.Instance.AddExperience(20);
+                break;
+            case Difficulty.Hard:
+                MoneyManager.Instance.AddCoins(300);
+                MoneyManager.Instance.AddGems(4);
+                MoneyManager.Instance.AddExperience(30);
+                break;
         }
 
         gameWinPanel.SetActive(true);

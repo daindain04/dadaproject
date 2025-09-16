@@ -33,18 +33,16 @@ public class CandyCrushManager : MonoBehaviour
         }
     }
 
-
     void Start()
     {
-
         SetCandyGoal();
         SetMaxMove();
     }
+
     void Update()
     {
         UpdateUI();
     }
-
 
     public int GetBoardWidth()
     {
@@ -78,7 +76,6 @@ public class CandyCrushManager : MonoBehaviour
         }
     }
 
-
     private void SetMaxMove()
     {
         if (currentLevel == 1)
@@ -99,8 +96,6 @@ public class CandyCrushManager : MonoBehaviour
     {
         remainMove -= 1;
     }
-
-
 
     private void SetCandyGoal()
     {
@@ -167,7 +162,6 @@ public class CandyCrushManager : MonoBehaviour
         {
             canMoveCandy = false;
             CandySuccess();
-
         }
         else if (remainMove == 0)
         {
@@ -180,26 +174,25 @@ public class CandyCrushManager : MonoBehaviour
 
     private void CandySuccess()
     {
-
         successPanel.SetActive(true);
 
-        // 보상 지급
+        // MoneyManager를 통한 보상 지급
         switch (currentLevel)
         {
             case 1: // 난이도 하
-                CoinManager.instance.AddCoins(200);
-                GemManager.instance.AddGems(1);
-                ExpManager.instance.AddExp(10);
+                MoneyManager.Instance.AddCoins(200);
+                MoneyManager.Instance.AddGems(1);
+                MoneyManager.Instance.AddExperience(10);
                 break;
             case 2: // 난이도 중
-                CoinManager.instance.AddCoins(250);
-                GemManager.instance.AddGems(2);
-                ExpManager.instance.AddExp(20);
+                MoneyManager.Instance.AddCoins(250);
+                MoneyManager.Instance.AddGems(2);
+                MoneyManager.Instance.AddExperience(20);
                 break;
             case 3: // 난이도 상
-                CoinManager.instance.AddCoins(300);
-                GemManager.instance.AddGems(3);
-                ExpManager.instance.AddExp(30);
+                MoneyManager.Instance.AddCoins(300);
+                MoneyManager.Instance.AddGems(3);
+                MoneyManager.Instance.AddExperience(30);
                 break;
         }
 
@@ -207,7 +200,6 @@ public class CandyCrushManager : MonoBehaviour
         successPanel.SetActive(true);
         Debug.Log("Success");
     }
-
 
     private void UpdateUI()
     {

@@ -115,8 +115,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 377
-        height: 359
+        width: 274
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92f24aab43dbc7b4fb5bd5161496d57b
-      internalID: -1889474133
+      spriteID: 96ced4a395671e641ba18068e543dc0b
+      internalID: 1135886103
       vertices: []
       indices: 
       edges: []
@@ -134,10 +134,10 @@ TextureImporter:
       name: 161718_Ui_Obstacle2_Sprite_1
       rect:
         serializedVersion: 2
-        x: 377
+        x: 274
         y: 0
-        width: 377
-        height: 359
+        width: 274
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a0fbeff36e3aed4ebd883504c4efbb1
-      internalID: 1705317868
+      spriteID: ac0b37474481e4a4b856a5d0b65b50b4
+      internalID: -954855958
       vertices: []
       indices: 
       edges: []
@@ -155,10 +155,10 @@ TextureImporter:
       name: 161718_Ui_Obstacle2_Sprite_2
       rect:
         serializedVersion: 2
-        x: 754
+        x: 548
         y: 0
-        width: 377
-        height: 359
+        width: 274
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 359940a672dd7d0499dae5c6ee64e529
-      internalID: 2022567771
+      spriteID: 70fde9719972e0447b887d47cd3ec1d9
+      internalID: -549299115
       vertices: []
       indices: 
       edges: []
@@ -176,10 +176,10 @@ TextureImporter:
       name: 161718_Ui_Obstacle2_Sprite_3
       rect:
         serializedVersion: 2
-        x: 1131
+        x: 822
         y: 0
-        width: 377
-        height: 359
+        width: 274
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb26b744d20b8ef48a644d745555cc63
-      internalID: 1785387011
+      spriteID: e07c435f1693f7e4c81fc3e710f142c5
+      internalID: 124281402
       vertices: []
       indices: 
       edges: []
@@ -197,10 +197,10 @@ TextureImporter:
       name: 161718_Ui_Obstacle2_Sprite_4
       rect:
         serializedVersion: 2
-        x: 1508
+        x: 1096
         y: 0
-        width: 377
-        height: 359
+        width: 274
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82c1891596b37944daeeab639edc9fd4
-      internalID: -31559895
+      spriteID: 33c8a23049a77b541b47f779fe6c1f5a
+      internalID: -846835087
       vertices: []
       indices: 
       edges: []
@@ -218,10 +218,10 @@ TextureImporter:
       name: 161718_Ui_Obstacle2_Sprite_5
       rect:
         serializedVersion: 2
-        x: 1885
+        x: 1370
         y: 0
-        width: 377
-        height: 359
+        width: 274
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41b8bf180ed60b04d926fefb381719da
-      internalID: -767500682
+      spriteID: 45e4d9874c825d140bb436f5c0721750
+      internalID: -1777933188
       vertices: []
       indices: 
       edges: []
@@ -239,10 +239,10 @@ TextureImporter:
       name: 161718_Ui_Obstacle2_Sprite_6
       rect:
         serializedVersion: 2
-        x: 2262
+        x: 1644
         y: 0
-        width: 377
-        height: 359
+        width: 274
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8a3859363462314cbbb50dded5f8cbd
-      internalID: -143063578
+      spriteID: 43a02b22b6ca5204d9c643d745017cb8
+      internalID: -217525166
       vertices: []
       indices: 
       edges: []
@@ -260,10 +260,10 @@ TextureImporter:
       name: 161718_Ui_Obstacle2_Sprite_7
       rect:
         serializedVersion: 2
-        x: 2639
+        x: 1918
         y: 0
-        width: 377
-        height: 359
+        width: 274
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cef83ebfa4dabcb478bfcc12d1167a01
-      internalID: 1316489208
+      spriteID: 38551ee0a1256f347a8c8a75da5a4f53
+      internalID: -884905589
       vertices: []
       indices: 
       edges: []
@@ -281,10 +281,10 @@ TextureImporter:
       name: 161718_Ui_Obstacle2_Sprite_8
       rect:
         serializedVersion: 2
-        x: 3016
+        x: 2192
         y: 0
-        width: 377
-        height: 359
+        width: 274
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,8 +292,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48e6e366b23c76041b53b3ecb599db5b
-      internalID: -315470879
+      spriteID: c6931ff2bedb8fc49839d3b2caf804bf
+      internalID: -750792554
       vertices: []
       indices: 
       edges: []
@@ -302,10 +302,10 @@ TextureImporter:
       name: 161718_Ui_Obstacle2_Sprite_9
       rect:
         serializedVersion: 2
-        x: 3393
+        x: 2466
         y: 0
-        width: 377
-        height: 359
+        width: 274
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,8 +313,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 099a5f8523c8c2447ae2907e839d5d83
-      internalID: 2064466945
+      spriteID: 2c59c64c957401f46b6fbe0407e006dc
+      internalID: 1823728045
       vertices: []
       indices: 
       edges: []
@@ -323,10 +323,10 @@ TextureImporter:
       name: 161718_Ui_Obstacle2_Sprite_10
       rect:
         serializedVersion: 2
-        x: 3770
+        x: 2740
         y: 0
-        width: 377
-        height: 359
+        width: 274
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,8 +334,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74034ea74ee75ce4bafbc542f7cf3f9c
-      internalID: -1373131129
+      spriteID: bb4f928868e1bdf4799dd732824d4bad
+      internalID: 854810786
       vertices: []
       indices: 
       edges: []
@@ -344,10 +344,10 @@ TextureImporter:
       name: 161718_Ui_Obstacle2_Sprite_11
       rect:
         serializedVersion: 2
-        x: 4147
+        x: 3014
         y: 0
-        width: 377
-        height: 359
+        width: 274
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -355,8 +355,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28c245c825cb04e4194105255f87ca35
-      internalID: -202041072
+      spriteID: b7e61b1095a3e9446ad57c3353aa2042
+      internalID: -446976675
       vertices: []
       indices: 
       edges: []
@@ -365,10 +365,10 @@ TextureImporter:
       name: 161718_Ui_Obstacle2_Sprite_12
       rect:
         serializedVersion: 2
-        x: 4524
+        x: 3288
         y: 0
-        width: 377
-        height: 359
+        width: 274
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,8 +376,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c2bc1ecbd6ebc741a13b987fdbb6b26
-      internalID: -333618540
+      spriteID: fa7e65676d856074b9e154cddc4b79ec
+      internalID: -1360061969
       vertices: []
       indices: 
       edges: []
@@ -386,10 +386,10 @@ TextureImporter:
       name: 161718_Ui_Obstacle2_Sprite_13
       rect:
         serializedVersion: 2
-        x: 4901
+        x: 3562
         y: 0
-        width: 377
-        height: 359
+        width: 274
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -397,8 +397,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74709e398b97cd543b1321ddf1218ce3
-      internalID: 165281531
+      spriteID: f9d89e8e096bcf2408ae3dc6b879eb93
+      internalID: -907803408
       vertices: []
       indices: 
       edges: []
@@ -407,10 +407,10 @@ TextureImporter:
       name: 161718_Ui_Obstacle2_Sprite_14
       rect:
         serializedVersion: 2
-        x: 5278
+        x: 3836
         y: 0
-        width: 377
-        height: 359
+        width: 274
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -418,8 +418,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03c0d884058028045a6c6d1b9cc321cc
-      internalID: 1457137672
+      spriteID: 7ba0d14822867a14c9c10d6e8208a6ff
+      internalID: 2147370397
       vertices: []
       indices: 
       edges: []
@@ -428,10 +428,10 @@ TextureImporter:
       name: 161718_Ui_Obstacle2_Sprite_15
       rect:
         serializedVersion: 2
-        x: 5655
+        x: 4110
         y: 0
-        width: 377
-        height: 359
+        width: 274
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -439,50 +439,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ede679318e51ae447b6018f62f07c55f
-      internalID: 1488332959
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 161718_Ui_Obstacle2_Sprite_16
-      rect:
-        serializedVersion: 2
-        x: 6032
-        y: 0
-        width: 377
-        height: 359
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b8cd2e585a8d38049a7bb30e8a462bac
-      internalID: -1405704665
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 161718_Ui_Obstacle2_Sprite_17
-      rect:
-        serializedVersion: 2
-        x: 6409
-        y: 0
-        width: 377
-        height: 359
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94be9c8d84e7a43409154c0dd8af19af
-      internalID: -1474759240
+      spriteID: ce6d17fadc23df04f832d1287496b120
+      internalID: -629305715
       vertices: []
       indices: 
       edges: []
@@ -498,24 +456,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      161718_Ui_Obstacle2_Sprite_0: -1889474133
-      161718_Ui_Obstacle2_Sprite_1: 1705317868
-      161718_Ui_Obstacle2_Sprite_10: -1373131129
-      161718_Ui_Obstacle2_Sprite_11: -202041072
-      161718_Ui_Obstacle2_Sprite_12: -333618540
-      161718_Ui_Obstacle2_Sprite_13: 165281531
-      161718_Ui_Obstacle2_Sprite_14: 1457137672
-      161718_Ui_Obstacle2_Sprite_15: 1488332959
-      161718_Ui_Obstacle2_Sprite_16: -1405704665
-      161718_Ui_Obstacle2_Sprite_17: -1474759240
-      161718_Ui_Obstacle2_Sprite_2: 2022567771
-      161718_Ui_Obstacle2_Sprite_3: 1785387011
-      161718_Ui_Obstacle2_Sprite_4: -31559895
-      161718_Ui_Obstacle2_Sprite_5: -767500682
-      161718_Ui_Obstacle2_Sprite_6: -143063578
-      161718_Ui_Obstacle2_Sprite_7: 1316489208
-      161718_Ui_Obstacle2_Sprite_8: -315470879
-      161718_Ui_Obstacle2_Sprite_9: 2064466945
+      161718_Ui_Obstacle2_Sprite_0: 1135886103
+      161718_Ui_Obstacle2_Sprite_1: -954855958
+      161718_Ui_Obstacle2_Sprite_10: 854810786
+      161718_Ui_Obstacle2_Sprite_11: -446976675
+      161718_Ui_Obstacle2_Sprite_12: -1360061969
+      161718_Ui_Obstacle2_Sprite_13: -907803408
+      161718_Ui_Obstacle2_Sprite_14: 2147370397
+      161718_Ui_Obstacle2_Sprite_15: -629305715
+      161718_Ui_Obstacle2_Sprite_2: -549299115
+      161718_Ui_Obstacle2_Sprite_3: 124281402
+      161718_Ui_Obstacle2_Sprite_4: -846835087
+      161718_Ui_Obstacle2_Sprite_5: -1777933188
+      161718_Ui_Obstacle2_Sprite_6: -217525166
+      161718_Ui_Obstacle2_Sprite_7: -884905589
+      161718_Ui_Obstacle2_Sprite_8: -750792554
+      161718_Ui_Obstacle2_Sprite_9: 1823728045
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

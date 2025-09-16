@@ -106,7 +106,7 @@ public class MchAI : MonoBehaviour
             movementDirection.y = -Mathf.Abs(movementDirection.y);
         }
 
-        Debug.Log("새 이동 방향: " + movementDirection);
+
 
         //  방향 변경 후 캐릭터 방향 조정
         FlipCharacter();

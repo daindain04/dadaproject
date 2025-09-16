@@ -17,40 +17,68 @@ public class CardGameController : MonoBehaviour
     // 내부용
     CardUIManager ui;
     Transform grid;
+    AutoGridSizer gridSizer; // 그리드 자동 크기 조정기 추가
     float remaining;
     bool isRunning;
     bool isInitialized = false;
+    bool isCheckingMatch = false; // 매칭 판정 중인지 확인하는 플래그 추가
     List<Card> flipped = new List<Card>();
     int matchedCount = 0;
 
     void Awake()
     {
+        Debug.Log($"Awake 호출됨 - 오브젝트: {gameObject.name}");
+
         ui = GetComponent<CardUIManager>();
+        
+
         grid = transform.parent.Find("CardGrid");
+       
+
+        if (grid != null)
+        {
+            gridSizer = grid.GetComponent<AutoGridSizer>(); // AutoGridSizer 컴포넌트 가져오기
+            
+        }
+
+      
     }
 
     // 더 이상 Start() 에서 자동 초기화하지 않습니다.
     // 대신 UI 매니저에서 호출할 InitializeGame() 으로 대체
 
     /// <summary>
-    /// UI에서 “Easy/Normal/Hard” 버튼 클릭 시 이 함수를 호출하세요.
+    /// UI에서 "Easy/Normal/Hard" 버튼 클릭 시 이 함수를 호출하세요.
     /// </summary>
     public void InitializeGame()
     {
-        if (isInitialized) return;
+      
+
+        if (isInitialized)
+        {
+            
+            return;
+        }
         isInitialized = true;
 
         // 타이머 세팅
         remaining = maxTime;
         isRunning = true;
+
+       
         ui.ShowRunning();
         ui.UpdateTimer(remaining, maxTime);
 
         // 카드 배치
+        
         SpawnCards();
+       
 
         // 타이머 코루틴 시작
+        
         StartCoroutine(TimerLoop());
+
+        
     }
 
     IEnumerator TimerLoop()
@@ -87,7 +115,7 @@ public class CardGameController : MonoBehaviour
         {
             var go = Instantiate(cardPrefab, grid);
             var card = go.GetComponent<Card>();
-            card.Init(face, OnCardClicked);
+            card.Init(face, CanCardBeClicked, OnCardClicked);
         }
     }
 
@@ -122,7 +150,7 @@ public class CardGameController : MonoBehaviour
         ui.ToggleHomeConfirm(true);
     }
 
-    /// <summary>홈 확인 패널 ‘Yes’ 버튼</summary>
+    /// <summary>홈 확인 패널 'Yes' 버튼</summary>
     public void OnHomeConfirmYes()
     {
         // 메인 씬으로 돌아가기
@@ -134,7 +162,7 @@ public class CardGameController : MonoBehaviour
         SceneManager.LoadScene("Main");
     }
 
-    /// <summary>홈 확인 패널 ‘No’ 버튼 (게임 재개)</summary>
+    /// <summary>홈 확인 패널 'No' 버튼 (게임 재개)</summary>
     public void OnHomeConfirmNo()
     {
         ui.ToggleHomeConfirm(false);
@@ -142,16 +170,39 @@ public class CardGameController : MonoBehaviour
     }
     // =================================
 
+    /// <summary>
+    /// 카드가 클릭 가능한지 확인하는 메서드
+    /// </summary>
+    bool CanCardBeClicked(Card card)
+    {
+        // 게임이 실행 중이지 않거나, 이미 뒤집힌 카드거나, 매칭 판정 중이면 클릭 불가
+        if (!isRunning || flipped.Contains(card) || isCheckingMatch) return false;
+
+        // 이미 2개의 카드가 뒤집혀있다면 클릭 불가 (추가 안전장치)
+        if (flipped.Count >= 2) return false;
+
+        return true;
+    }
+
     void OnCardClicked(Card card)
     {
-        if (!isRunning || flipped.Contains(card)) return;
+        // CanCardBeClicked에서 이미 검증했지만 추가 안전장치
+        if (!CanCardBeClicked(card)) return;
+
         flipped.Add(card);
-        if (flipped.Count == 2) StartCoroutine(CheckMatch());
+        if (flipped.Count == 2)
+        {
+            isCheckingMatch = true; // 매칭 판정 시작
+            StartCoroutine(CheckMatch());
+        }
     }
+
+    // =================================
 
     IEnumerator CheckMatch()
     {
         yield return new WaitForSeconds(0.5f);
+
         if (flipped[0].Face == flipped[1].Face)
         {
             flipped[0].SetMatched();
@@ -165,14 +216,39 @@ public class CardGameController : MonoBehaviour
             flipped[0].FlipBack();
             flipped[1].FlipBack();
         }
+
         flipped.Clear();
+        isCheckingMatch = false; // 매칭 판정 완료
     }
 
     void OnWin()
     {
         isRunning = false;
         ui.ShowReward();
-        // 보상 지급 로직…
+
+        // 난이도별 보상 지급
+        switch (difficulty)
+        {
+            case Difficulty.Easy:
+                MoneyManager.Instance.AddCoins(100);
+                MoneyManager.Instance.AddExperience(10);
+                Debug.Log("Easy 클리어! 코인 100, 경험치 10 획득");
+                break;
+
+            case Difficulty.Normal:
+                MoneyManager.Instance.AddCoins(150);
+                MoneyManager.Instance.AddGems(1);
+                MoneyManager.Instance.AddExperience(20); 
+                Debug.Log("Normal 클리어! 코인 150, 보석 1, 경험치 20 획득");
+                break;
+
+            case Difficulty.Hard:
+                MoneyManager.Instance.AddCoins(200);
+                MoneyManager.Instance.AddGems(2);
+                MoneyManager.Instance.AddExperience(30); 
+                Debug.Log("Hard 클리어! 코인 200, 보석 1, 경험치 30 획득");
+                break;
+        }
     }
 
     void OnFail()
@@ -185,5 +261,6 @@ public class CardGameController : MonoBehaviour
     {
         // 패널 꺼질 때 재초기화 가능하도록 플래그 리셋
         isInitialized = false;
+        isCheckingMatch = false; // 매칭 판정 플래그도 리셋
     }
 }
