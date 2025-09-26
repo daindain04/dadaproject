@@ -1,16 +1,15 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class CardUIManager : MonoBehaviour
 {
-    [Header("UI ���� (�� ���� �巡��)")]
+    [Header("UI 연결 (한 번만 드래그)")]
     public Slider timerSlider;
     public TMP_Text timerText;
     public GameObject stopButton;
     public GameObject restartButton;
     public GameObject homeButton;
-
     public GameObject homeConfirmPanel;
     public GameObject rewardPanel;
     public GameObject failPanel;
@@ -35,6 +34,7 @@ public class CardUIManager : MonoBehaviour
         stopButton.SetActive(false);
         restartButton.SetActive(true);
     }
+
     public void ShowRunning()
     {
         stopButton.SetActive(true);
@@ -45,5 +45,11 @@ public class CardUIManager : MonoBehaviour
         => homeConfirmPanel.SetActive(show);
 
     public void ShowReward() => rewardPanel.SetActive(true);
+
     public void ShowFail() => failPanel.SetActive(true);
+
+    /// <summary>
+    /// 실패 패널을 숨기는 함수 (재시작 시 사용)
+    /// </summary>
+    public void HideFail() => failPanel.SetActive(false);
 }

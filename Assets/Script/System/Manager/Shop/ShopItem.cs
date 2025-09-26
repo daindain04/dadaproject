@@ -1,15 +1,14 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-// È­Æó Å¸ÀÔ Á¤ÀÇ
+// í™”í íƒ€ì… ì •ì˜
 public enum CurrencyType
 {
     Coin,
     Gem
 }
 
-// »óÁ¡ ¾ÆÀÌÅÛ Å¸ÀÔ Á¤ÀÇ
+// ìƒì  ì•„ì´í…œ íƒ€ì… ì •ì˜
 public enum ItemType
 {
     MainRoomFurniture,
@@ -21,103 +20,84 @@ public enum ItemType
 
 public class ShopItem : MonoBehaviour
 {
-    [Header("¾ÆÀÌÅÛ ±âº» Á¤º¸")]
+    [Header("ì•„ì´í…œ ê¸°ë³¸ ì •ë³´")]
+    public int itemID;
     public string itemName;
-    public int price; // °¡±¸ °¡°İ
-    public CurrencyType currencyType = CurrencyType.Coin; // ÄÚÀÎ ¶Ç´Â º¸¼®
+    public int price;
+    public CurrencyType currencyType = CurrencyType.Coin;
     public ItemType itemType = ItemType.MainRoomFurniture;
 
-    [Header("UI ¿ä¼Ò")]
-    public GameObject purchasePanel;
-    public Button yesButton;
-    public Button noButton;
+    [Header("UI ìš”ì†Œ")]
     public Button itemButton;
-    public TextMeshProUGUI priceText;
-    public Image currencyIcon;
-    public GameObject soldOutMark; // Ç°Àı Ç¥½Ã
-
-    [Header("°¡±¸ ¼³Á¤")]
-    public bool isReplaceable; // ±âÁ¸ °¡±¸ ±³Ã¼ ¿©ºÎ (true: ±âÁ¸ °¡±¸ ´ëÃ¼, false: »õ °¡±¸ Ãß°¡)
-    public GameObject oldFurniture; // ±âÁ¸ °¡±¸ (±³Ã¼Çü °¡±¸ÀÏ °æ¿ì)
-    public GameObject newFurniture; // »õ °¡±¸
-    public Vector3 addPosition; // »õ °¡±¸ Ãß°¡ À§Ä¡ (isReplaceableÀÌ falseÀÏ ¶§)
-
-    [Header("È­Æó ¾ÆÀÌÄÜ")]
-    public Sprite coinIcon;
-    public Sprite gemIcon;
 
     private bool isPurchased = false;
 
+    // useGems ì†ì„± (ê¸°ì¡´ í˜¸í™˜ì„±)
+    public bool useGems => currencyType == CurrencyType.Gem;
+
     private void Start()
     {
-        InitializeUI();
         SetupButtons();
 
-        // ShopManager¿¡ °¡±¸ µî·Ï (±³Ã¼ÇüÀÎ °æ¿ì)
-        if (ShopManager.instance != null && isReplaceable && oldFurniture != null && newFurniture != null)
-        {
-            ShopManager.instance.RegisterFurnitureReplacement(oldFurniture, newFurniture);
-        }
+        // ShopDataManager ì´ë²¤íŠ¸ êµ¬ë…
+        ShopDataManager.OnShopDataLoaded += CheckPurchaseStatus;
+        ShopDataManager.OnItemPurchased += OnItemPurchased;
+
+        // ì´ˆê¸° êµ¬ë§¤ ìƒíƒœ í™•ì¸
+        CheckPurchaseStatus();
     }
 
-    private void InitializeUI()
+    private void OnDestroy()
     {
-        // °¡°İ ÅØ½ºÆ® ¼³Á¤
-        if (priceText != null)
-        {
-            priceText.text = price.ToString();
-        }
-
-        // È­Æó ¾ÆÀÌÄÜ ¼³Á¤
-        if (currencyIcon != null)
-        {
-            currencyIcon.sprite = currencyType == CurrencyType.Coin ? coinIcon : gemIcon;
-        }
-
-        // ±¸¸Å ÆĞ³Î ÃÊ±â »óÅÂ
-        if (purchasePanel != null)
-        {
-            purchasePanel.SetActive(false);
-        }
-
-        UpdatePurchaseState();
+        // ì´ë²¤íŠ¸ êµ¬ë… í•´ì œ
+        ShopDataManager.OnShopDataLoaded -= CheckPurchaseStatus;
+        ShopDataManager.OnItemPurchased -= OnItemPurchased;
     }
 
     private void SetupButtons()
     {
-        if (yesButton != null)
-            yesButton.onClick.AddListener(PurchaseItem);
-
-        if (noButton != null)
-            noButton.onClick.AddListener(ClosePurchasePanel);
-
         if (itemButton != null)
-            itemButton.onClick.AddListener(OpenPurchasePanel);
+        {
+            itemButton.onClick.RemoveAllListeners();
+            itemButton.onClick.AddListener(OnItemButtonClicked);
+        }
     }
 
-    public void OpenPurchasePanel()
+    private void CheckPurchaseStatus()
+    {
+        if (ShopDataManager.Instance != null)
+        {
+            bool shouldBePurchased = ShopDataManager.Instance.IsItemPurchased(itemID);
+            SetPurchased(shouldBePurchased);
+        }
+    }
+
+    private void OnItemPurchased(int purchasedItemID)
+    {
+        // ì´ ì•„ì´í…œì´ êµ¬ë§¤ëœ ê²½ìš°ì—ë§Œ UI ì—…ë°ì´íŠ¸
+        if (purchasedItemID == itemID)
+        {
+            SetPurchased(true);
+        }
+    }
+
+    public void OnItemButtonClicked()
     {
         if (isPurchased)
         {
-            Debug.Log("ÀÌ¹Ì ±¸¸ÅÇÑ ¾ÆÀÌÅÛÀÔ´Ï´Ù.");
+            Debug.Log($"ì´ë¯¸ êµ¬ë§¤í•œ ì•„ì´í…œì…ë‹ˆë‹¤: {itemName}");
             return;
         }
 
-        if (purchasePanel != null)
+        // ShopObjectManagerì˜ êµ¬ë§¤ í™•ì¸ ì°½ ì‚¬ìš©
+        if (ShopObjectManager.Instance != null)
         {
-            // ÆĞ³ÎÀ» ¿­ ¶§ ÇöÀç ¼±ÅÃµÈ °¡±¸ Á¤º¸¸¦ ¾÷µ¥ÀÌÆ®
-            if (ShopManager.instance != null)
-                ShopManager.instance.SetCurrentFurniture(this);
-
-            purchasePanel.SetActive(true);
+            ShopObjectManager.Instance.ShowPurchaseConfirmation(this);
         }
-    }
-
-    public void ClosePurchasePanel()
-    {
-        if (purchasePanel != null)
+        else
         {
-            purchasePanel.SetActive(false);
+            // ShopObjectManagerê°€ ì—†ìœ¼ë©´ ì§ì ‘ êµ¬ë§¤ ì²˜ë¦¬
+            PurchaseItem();
         }
     }
 
@@ -125,145 +105,54 @@ public class ShopItem : MonoBehaviour
     {
         if (isPurchased)
         {
-            Debug.Log("ÀÌ¹Ì ±¸¸ÅÇÑ ¾ÆÀÌÅÛÀÔ´Ï´Ù.");
-            ClosePurchasePanel();
+            Debug.Log($"ì´ë¯¸ êµ¬ë§¤í•œ ì•„ì´í…œì…ë‹ˆë‹¤: {itemName}");
             return;
         }
 
-        // È­Æó Â÷°¨ ½Ãµµ
-        bool purchaseSuccess = false;
-        if (currencyType == CurrencyType.Coin)
+        if (ShopDataManager.Instance != null)
         {
-            if (MoneyManager.Instance != null)
-                purchaseSuccess = MoneyManager.Instance.SpendCoins(price);
-        }
-        else if (currencyType == CurrencyType.Gem)
-        {
-            if (MoneyManager.Instance != null)
-                purchaseSuccess = MoneyManager.Instance.SpendGems(price);
-        }
+            bool purchaseSuccess = ShopDataManager.Instance.PurchaseItem(
+                itemID,
+                itemName,
+                price,
+                currencyType == CurrencyType.Gem
+            );
 
-        if (purchaseSuccess)
-        {
-            Debug.Log($"{itemName} ±¸¸Å ¼º°ø!");
-            ProcessPurchase();
-            isPurchased = true;
-            UpdatePurchaseState();
-            ClosePurchasePanel();
-
-            // ÀÚµ¿ ÀúÀå È£Ãâ
-            if (ShopManager.instance != null)
+            if (!purchaseSuccess)
             {
-                ShopManager.instance.SavePurchaseData();
+                string currencyName = currencyType == CurrencyType.Coin ? "ì½”ì¸" : "ë³´ì„";
+                Debug.Log($"{currencyName}ì´ ë¶€ì¡±í•©ë‹ˆë‹¤!");
             }
+            // ì„±ê³µí•œ ê²½ìš°ëŠ” ì´ë²¤íŠ¸ë¡œ ì²˜ë¦¬ë¨
         }
         else
         {
-            string currencyName = currencyType == CurrencyType.Coin ? "ÄÚÀÎ" : "º¸¼®";
-            Debug.Log($"{currencyName}ÀÌ ºÎÁ·ÇÕ´Ï´Ù!");
+            Debug.LogError("ShopDataManager.Instanceê°€ nullì…ë‹ˆë‹¤!");
         }
-    }
-
-    private void ProcessPurchase()
-    {
-        switch (itemType)
-        {
-            case ItemType.MainRoomFurniture:
-            case ItemType.KitchenFurniture:
-                ProcessFurniturePurchase();
-                break;
-
-            case ItemType.Food:
-                ProcessFoodPurchase();
-                break;
-
-            case ItemType.Toy:
-                ProcessToyPurchase();
-                break;
-
-            case ItemType.Clothing:
-                ProcessClothingPurchase();
-                break;
-        }
-    }
-
-    private void ProcessFurniturePurchase()
-    {
-        if (isReplaceable)
-        {
-            // ±âÁ¸ °¡±¸¿Í ±³Ã¼
-            if (ShopManager.instance != null)
-            {
-                if (!ShopManager.instance.IsFurnitureRegistered(oldFurniture))
-                {
-                    ShopManager.instance.RegisterFurnitureReplacement(oldFurniture, newFurniture);
-                }
-                ShopManager.instance.ReplaceFurniture(oldFurniture);
-            }
-        }
-        else
-        {
-            // »õ °¡±¸ Ãß°¡
-            if (newFurniture != null)
-            {
-                Vector3 spawnPos = addPosition != Vector3.zero ? addPosition : newFurniture.transform.position;
-                GameObject newObj = Instantiate(newFurniture, spawnPos, newFurniture.transform.rotation);
-                newObj.SetActive(true);
-                Debug.Log($"»õ °¡±¸ Ãß°¡: {itemName}");
-            }
-        }
-    }
-
-    private void ProcessFoodPurchase()
-    {
-        // À½½Ä ±¸¸Å Ã³¸® (ÇâÈÄ ÀÎº¥Åä¸® ½Ã½ºÅÛ°ú ¿¬µ¿)
-        Debug.Log($"À½½Ä {itemName}À» ±¸¸ÅÇß½À´Ï´Ù. (ÀÎº¥Åä¸® Ãß°¡ ¿¹Á¤)");
-
-        // ¿©±â¿¡ À½½Ä ÀÎº¥Åä¸® Ãß°¡ ·ÎÁ÷ ±¸Çö
-        // FoodInventoryManager.instance.AddFood(itemName, 1);
-    }
-
-    private void ProcessToyPurchase()
-    {
-        // Àå³­°¨ ±¸¸Å Ã³¸® (ÇâÈÄ ÀÎº¥Åä¸® ½Ã½ºÅÛ°ú ¿¬µ¿)
-        Debug.Log($"Àå³­°¨ {itemName}À» ±¸¸ÅÇß½À´Ï´Ù. (ÀÎº¥Åä¸® Ãß°¡ ¿¹Á¤)");
-
-        // ¿©±â¿¡ Àå³­°¨ ÀÎº¥Åä¸® Ãß°¡ ·ÎÁ÷ ±¸Çö
-        // ToyInventoryManager.instance.AddToy(itemName, 1);
-    }
-
-    private void ProcessClothingPurchase()
-    {
-        // ¿Ê ±¸¸Å Ã³¸® (ÇâÈÄ ÀÇ»ó ½Ã½ºÅÛ°ú ¿¬µ¿)
-        Debug.Log($"¿Ê {itemName}À» ±¸¸ÅÇß½À´Ï´Ù. (ÀÇ»ó ¸ñ·Ï Ãß°¡ ¿¹Á¤)");
-
-        // ¿©±â¿¡ ÀÇ»ó ½Ã½ºÅÛ ¿¬µ¿ ·ÎÁ÷ ±¸Çö
-        // ClothingManager.instance.UnlockClothing(itemName);
     }
 
     private void UpdatePurchaseState()
     {
-        // ±¸¸Å ¹öÆ° »óÅÂ ¾÷µ¥ÀÌÆ®
+        // êµ¬ë§¤ ë²„íŠ¼ ìƒíƒœ ì—…ë°ì´íŠ¸
         if (itemButton != null)
         {
             itemButton.interactable = !isPurchased;
-        }
 
-        // Ç°Àı Ç¥½Ã ¾÷µ¥ÀÌÆ®
-        if (soldOutMark != null)
-        {
-            soldOutMark.SetActive(isPurchased);
+            // ë²„íŠ¼ ìƒ‰ìƒ ë³€ê²½ (ì„ íƒì‚¬í•­)
+            var colors = itemButton.colors;
+            colors.normalColor = isPurchased ? Color.gray : Color.white;
+            itemButton.colors = colors;
         }
     }
 
-    // ¿ÜºÎ¿¡¼­ ±¸¸Å »óÅÂ ¼³Á¤ (¼¼ÀÌºê ·Îµå ½Ã »ç¿ë)
+    // ì™¸ë¶€ì—ì„œ êµ¬ë§¤ ìƒíƒœ ì„¤ì •
     public void SetPurchased(bool purchased)
     {
         isPurchased = purchased;
         UpdatePurchaseState();
     }
 
-    // ±¸¸Å »óÅÂ È®ÀÎ
+    // êµ¬ë§¤ ìƒíƒœ í™•ì¸
     public bool IsPurchased()
     {
         return isPurchased;

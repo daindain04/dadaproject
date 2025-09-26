@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,78 +7,78 @@ public enum Difficulty { Easy, Normal, Hard }
 
 public class CardGameController : MonoBehaviour
 {
-    [Header("¼³Á¤")]
+    [Header("ì„¤ì •")]
     public Difficulty difficulty;
     public GameObject cardPrefab;
     public Sprite[] cardFaces;
     public int pairsCount;
     public float maxTime;
 
-    // ³»ºÎ¿ë
+    // ë‚´ë¶€ìš©
     CardUIManager ui;
     Transform grid;
-    AutoGridSizer gridSizer; // ±×¸®µå ÀÚµ¿ Å©±â Á¶Á¤±â Ãß°¡
+    AutoGridSizer gridSizer; // ê·¸ë¦¬ë“œ ìë™ í¬ê¸° ì¡°ì •ê¸° ì¶”ê°€
     float remaining;
     bool isRunning;
     bool isInitialized = false;
-    bool isCheckingMatch = false; // ¸ÅÄª ÆÇÁ¤ ÁßÀÎÁö È®ÀÎÇÏ´Â ÇÃ·¡±× Ãß°¡
+    bool isCheckingMatch = false; // ë§¤ì¹­ íŒì • ì¤‘ì¸ì§€ í™•ì¸í•˜ëŠ” í”Œë˜ê·¸ ì¶”ê°€
     List<Card> flipped = new List<Card>();
     int matchedCount = 0;
 
     void Awake()
     {
-        Debug.Log($"Awake È£ÃâµÊ - ¿ÀºêÁ§Æ®: {gameObject.name}");
+        Debug.Log($"Awake í˜¸ì¶œë¨ - ì˜¤ë¸Œì íŠ¸: {gameObject.name}");
 
         ui = GetComponent<CardUIManager>();
-        
+
 
         grid = transform.parent.Find("CardGrid");
-       
+
 
         if (grid != null)
         {
-            gridSizer = grid.GetComponent<AutoGridSizer>(); // AutoGridSizer ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
-            
+            gridSizer = grid.GetComponent<AutoGridSizer>(); // AutoGridSizer ì»´í¬ë„ŒíŠ¸ ê°€ì ¸ì˜¤ê¸°
+
         }
 
-      
+
     }
 
-    // ´õ ÀÌ»ó Start() ¿¡¼­ ÀÚµ¿ ÃÊ±âÈ­ÇÏÁö ¾Ê½À´Ï´Ù.
-    // ´ë½Å UI ¸Å´ÏÀú¿¡¼­ È£ÃâÇÒ InitializeGame() À¸·Î ´ëÃ¼
+    // ë” ì´ìƒ Start() ì—ì„œ ìë™ ì´ˆê¸°í™”í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+    // ëŒ€ì‹  UI ë§¤ë‹ˆì €ì—ì„œ í˜¸ì¶œí•  InitializeGame() ìœ¼ë¡œ ëŒ€ì²´
 
     /// <summary>
-    /// UI¿¡¼­ "Easy/Normal/Hard" ¹öÆ° Å¬¸¯ ½Ã ÀÌ ÇÔ¼ö¸¦ È£ÃâÇÏ¼¼¿ä.
+    /// UIì—ì„œ "Easy/Normal/Hard" ë²„íŠ¼ í´ë¦­ ì‹œ ì´ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•˜ì„¸ìš”.
     /// </summary>
     public void InitializeGame()
     {
-      
+
 
         if (isInitialized)
         {
-            
+
             return;
         }
         isInitialized = true;
 
-        // Å¸ÀÌ¸Ó ¼¼ÆÃ
+        // íƒ€ì´ë¨¸ ì„¸íŒ…
         remaining = maxTime;
         isRunning = true;
 
-       
+
         ui.ShowRunning();
         ui.UpdateTimer(remaining, maxTime);
 
-        // Ä«µå ¹èÄ¡
-        
-        SpawnCards();
-       
+        // ì¹´ë“œ ë°°ì¹˜
 
-        // Å¸ÀÌ¸Ó ÄÚ·çÆ¾ ½ÃÀÛ
-        
+        SpawnCards();
+
+
+        // íƒ€ì´ë¨¸ ì½”ë£¨í‹´ ì‹œì‘
+
         StartCoroutine(TimerLoop());
 
-        
+
     }
 
     IEnumerator TimerLoop()
@@ -101,7 +101,7 @@ public class CardGameController : MonoBehaviour
 
     void SpawnCards()
     {
-        // ÆäÀÌ½º ¹è¿­ º¹Á¦ ¹× ¼ÅÇÃ
+        // í˜ì´ìŠ¤ ë°°ì—´ ë³µì œ ë° ì…”í”Œ
         var faces = new List<Sprite>();
         for (int i = 0; i < pairsCount; i++)
         {
@@ -110,7 +110,7 @@ public class CardGameController : MonoBehaviour
         }
         Shuffle(faces);
 
-        // ÇÁ¸®ÆÕ ÀÎ½ºÅÏ½ºÈ­
+        // í”„ë¦¬íŒ¹ ì¸ìŠ¤í„´ìŠ¤í™”
         foreach (var face in faces)
         {
             var go = Instantiate(cardPrefab, grid);
@@ -129,31 +129,31 @@ public class CardGameController : MonoBehaviour
     }
 
     // =================================
-    /// <summary>ÀÏ½ÃÁ¤Áö ¹öÆ°</summary>
+    /// <summary>ì¼ì‹œì •ì§€ ë²„íŠ¼</summary>
     public void OnStopPressed()
     {
         isRunning = false;
-        ui.ShowPaused();      // CardUIManager ¿¡¼­ Stop¡æRestart UI ÀüÈ¯
+        ui.ShowPaused();      // CardUIManager ì—ì„œ Stopâ†’Restart UI ì „í™˜
     }
 
-    /// <summary>Àç½ÃÀÛ(Continue) ¹öÆ°</summary>
+    /// <summary>ì¬ì‹œì‘(Continue) ë²„íŠ¼</summary>
     public void OnRestartPressed()
     {
         isRunning = true;
-        ui.ShowRunning();     // CardUIManager ¿¡¼­ Restart¡æStop UI ÀüÈ¯
+        ui.ShowRunning();     // CardUIManager ì—ì„œ Restartâ†’Stop UI ì „í™˜
     }
 
-    /// <summary>È¨ ¹öÆ° Å¬¸¯ (È®ÀÎ ÆĞ³Î ¶ç¿ì±â)</summary>
+    /// <summary>í™ˆ ë²„íŠ¼ í´ë¦­ (í™•ì¸ íŒ¨ë„ ë„ìš°ê¸°)</summary>
     public void OnHomePressed()
     {
         isRunning = false;
         ui.ToggleHomeConfirm(true);
     }
 
-    /// <summary>È¨ È®ÀÎ ÆĞ³Î 'Yes' ¹öÆ°</summary>
+    /// <summary>í™ˆ í™•ì¸ íŒ¨ë„ 'Yes' ë²„íŠ¼</summary>
     public void OnHomeConfirmYes()
     {
-        // ¸ŞÀÎ ¾ÀÀ¸·Î µ¹¾Æ°¡±â
+        // ë©”ì¸ ì”¬ìœ¼ë¡œ ëŒì•„ê°€ê¸°
         SceneManager.LoadScene("Main");
     }
 
@@ -162,23 +162,70 @@ public class CardGameController : MonoBehaviour
         SceneManager.LoadScene("Main");
     }
 
-    /// <summary>È¨ È®ÀÎ ÆĞ³Î 'No' ¹öÆ° (°ÔÀÓ Àç°³)</summary>
+    /// <summary>í™ˆ í™•ì¸ íŒ¨ë„ 'No' ë²„íŠ¼ (ê²Œì„ ì¬ê°œ)</summary>
     public void OnHomeConfirmNo()
     {
         ui.ToggleHomeConfirm(false);
         isRunning = true;
     }
+
+    /// <summary>
+    /// ì‹¤íŒ¨ íŒ¨ë„ì—ì„œ ì¬ì‹œì‘ ë²„íŠ¼ í´ë¦­ ì‹œ í˜¸ì¶œ
+    /// </summary>
+    public void OnFailRestartPressed()
+    {
+        // ê²Œì„ ìƒíƒœ ì´ˆê¸°í™”
+        ResetGame();
+
+        // ì‹¤íŒ¨ íŒ¨ë„ ìˆ¨ê¸°ê¸°
+        ui.HideFail();
+
+        // ê²Œì„ ë‹¤ì‹œ ì‹œì‘
+        InitializeGame();
+    }
+
+    /// <summary>
+    /// ì‹¤íŒ¨ íŒ¨ë„ì—ì„œ í™ˆìœ¼ë¡œ ëŒì•„ê°€ê¸° ë²„íŠ¼ í´ë¦­ ì‹œ í˜¸ì¶œ
+    /// </summary>
+    public void OnFailHomePressed()
+    {
+        // ë©”ì¸ ì”¬ìœ¼ë¡œ ëŒì•„ê°€ê¸°
+        SceneManager.LoadScene("Main");
+    }
+
+    /// <summary>
+    /// ê²Œì„ ìƒíƒœë¥¼ ì´ˆê¸°í™”í•˜ëŠ” í•¨ìˆ˜
+    /// </summary>
+    void ResetGame()
+    {
+        // ê¸°ì¡´ ì¹´ë“œë“¤ ì‚­ì œ
+        foreach (Transform child in grid)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // ê²Œì„ ìƒíƒœ ë³€ìˆ˜ë“¤ ì´ˆê¸°í™”
+        flipped.Clear();
+        matchedCount = 0;
+        isRunning = false;
+        isInitialized = false;
+        isCheckingMatch = false;
+
+        // íƒ€ì´ë¨¸ ê´€ë ¨ ì½”ë£¨í‹´ ì •ë¦¬ (ìƒˆë¡œ ì‹œì‘í•  ë•Œ InitializeGameì—ì„œ ë‹¤ì‹œ ì‹œì‘ë¨)
+        StopAllCoroutines();
+    }
+
     // =================================
 
     /// <summary>
-    /// Ä«µå°¡ Å¬¸¯ °¡´ÉÇÑÁö È®ÀÎÇÏ´Â ¸Ş¼­µå
+    /// ì¹´ë“œê°€ í´ë¦­ ê°€ëŠ¥í•œì§€ í™•ì¸í•˜ëŠ” ë©”ì„œë“œ
     /// </summary>
     bool CanCardBeClicked(Card card)
     {
-        // °ÔÀÓÀÌ ½ÇÇà ÁßÀÌÁö ¾Ê°Å³ª, ÀÌ¹Ì µÚÁıÈù Ä«µå°Å³ª, ¸ÅÄª ÆÇÁ¤ ÁßÀÌ¸é Å¬¸¯ ºÒ°¡
+        // ê²Œì„ì´ ì‹¤í–‰ ì¤‘ì´ì§€ ì•Šê±°ë‚˜, ì´ë¯¸ ë’¤ì§‘íŒ ì¹´ë“œê±°ë‚˜, ë§¤ì¹­ íŒì • ì¤‘ì´ë©´ í´ë¦­ ë¶ˆê°€
         if (!isRunning || flipped.Contains(card) || isCheckingMatch) return false;
 
-        // ÀÌ¹Ì 2°³ÀÇ Ä«µå°¡ µÚÁıÇôÀÖ´Ù¸é Å¬¸¯ ºÒ°¡ (Ãß°¡ ¾ÈÀüÀåÄ¡)
+        // ì´ë¯¸ 2ê°œì˜ ì¹´ë“œê°€ ë’¤ì§‘í˜€ìˆë‹¤ë©´ í´ë¦­ ë¶ˆê°€ (ì¶”ê°€ ì•ˆì „ì¥ì¹˜)
         if (flipped.Count >= 2) return false;
 
         return true;
@@ -186,13 +233,13 @@ public class CardGameController : MonoBehaviour
 
     void OnCardClicked(Card card)
     {
-        // CanCardBeClicked¿¡¼­ ÀÌ¹Ì °ËÁõÇßÁö¸¸ Ãß°¡ ¾ÈÀüÀåÄ¡
+        // CanCardBeClickedì—ì„œ ì´ë¯¸ ê²€ì¦í–ˆì§€ë§Œ ì¶”ê°€ ì•ˆì „ì¥ì¹˜
         if (!CanCardBeClicked(card)) return;
 
         flipped.Add(card);
         if (flipped.Count == 2)
         {
-            isCheckingMatch = true; // ¸ÅÄª ÆÇÁ¤ ½ÃÀÛ
+            isCheckingMatch = true; // ë§¤ì¹­ íŒì • ì‹œì‘
             StartCoroutine(CheckMatch());
         }
     }
@@ -218,7 +265,7 @@ public class CardGameController : MonoBehaviour
         }
 
         flipped.Clear();
-        isCheckingMatch = false; // ¸ÅÄª ÆÇÁ¤ ¿Ï·á
+        isCheckingMatch = false; // ë§¤ì¹­ íŒì • ì™„ë£Œ
     }
 
     void OnWin()
@@ -226,27 +273,27 @@ public class CardGameController : MonoBehaviour
         isRunning = false;
         ui.ShowReward();
 
-        // ³­ÀÌµµº° º¸»ó Áö±Ş
+        // ë‚œì´ë„ë³„ ë³´ìƒ ì§€ê¸‰
         switch (difficulty)
         {
             case Difficulty.Easy:
                 MoneyManager.Instance.AddCoins(100);
                 MoneyManager.Instance.AddExperience(10);
-                Debug.Log("Easy Å¬¸®¾î! ÄÚÀÎ 100, °æÇèÄ¡ 10 È¹µæ");
+                Debug.Log("Easy í´ë¦¬ì–´! ì½”ì¸ 100, ê²½í—˜ì¹˜ 10 íšë“");
                 break;
 
             case Difficulty.Normal:
                 MoneyManager.Instance.AddCoins(150);
                 MoneyManager.Instance.AddGems(1);
-                MoneyManager.Instance.AddExperience(20); 
-                Debug.Log("Normal Å¬¸®¾î! ÄÚÀÎ 150, º¸¼® 1, °æÇèÄ¡ 20 È¹µæ");
+                MoneyManager.Instance.AddExperience(20);
+                Debug.Log("Normal í´ë¦¬ì–´! ì½”ì¸ 150, ë³´ì„ 1, ê²½í—˜ì¹˜ 20 íšë“");
                 break;
 
             case Difficulty.Hard:
                 MoneyManager.Instance.AddCoins(200);
                 MoneyManager.Instance.AddGems(2);
-                MoneyManager.Instance.AddExperience(30); 
-                Debug.Log("Hard Å¬¸®¾î! ÄÚÀÎ 200, º¸¼® 1, °æÇèÄ¡ 30 È¹µæ");
+                MoneyManager.Instance.AddExperience(30);
+                Debug.Log("Hard í´ë¦¬ì–´! ì½”ì¸ 200, ë³´ì„ 1, ê²½í—˜ì¹˜ 30 íšë“");
                 break;
         }
     }
@@ -259,8 +306,8 @@ public class CardGameController : MonoBehaviour
 
     void OnDisable()
     {
-        // ÆĞ³Î ²¨Áú ¶§ ÀçÃÊ±âÈ­ °¡´ÉÇÏµµ·Ï ÇÃ·¡±× ¸®¼Â
+        // íŒ¨ë„ êº¼ì§ˆ ë•Œ ì¬ì´ˆê¸°í™” ê°€ëŠ¥í•˜ë„ë¡ í”Œë˜ê·¸ ë¦¬ì…‹
         isInitialized = false;
-        isCheckingMatch = false; // ¸ÅÄª ÆÇÁ¤ ÇÃ·¡±×µµ ¸®¼Â
+        isCheckingMatch = false; // ë§¤ì¹­ íŒì • í”Œë˜ê·¸ë„ ë¦¬ì…‹
     }
 }

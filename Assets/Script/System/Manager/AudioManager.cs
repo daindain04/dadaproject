@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        // ½Ì±ÛÅæ ÆĞÅÏ Àû¿ë
+        // ì‹±ê¸€í†¤ íŒ¨í„´ ì ìš©
         if (Instance == null)
         {
             Instance = this;
@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        // ÀúÀåµÈ »ç¿îµå ¼³Á¤ ºÒ·¯¿À±â
+        // ì €ì¥ëœ ì‚¬ìš´ë“œ ì„¤ì • ë¶ˆëŸ¬ì˜¤ê¸°
         bool isBackgroundMusicOn = PlayerPrefs.GetInt("BackgroundMusic", 1) == 1;
         bool isEffectSoundOn = PlayerPrefs.GetInt("EffectSound", 1) == 1;
 

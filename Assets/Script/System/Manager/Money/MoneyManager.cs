@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,34 +9,34 @@ public class MoneyManager : MonoBehaviour
     [Header("Player Resources")]
     public int coins = 0;
     public int gems = 0;
-    public int totalExperience = 0; // ÃÑ °æÇèÄ¡
+    public int totalExperience = 0; // ì´ ê²½í—˜ì¹˜
     public int level = 1;
 
     [Header("Save Settings")]
     public string saveFileName = "PlayerData";
 
-    // °æÇèÄ¡ °ü·Ã ÀÌº¥Æ®
+    // ê²½í—˜ì¹˜ ê´€ë ¨ ì´ë²¤íŠ¸
     public static System.Action OnLevelUp;
     public static System.Action OnExperienceChanged;
 
     void Awake()
     {
-        // ½Ì±ÛÅæ ÆĞÅÏÀ¸·Î ¾À ÀüÈ¯ ½Ã¿¡µµ À¯Áö
+        // ì‹±ê¸€í†¤ íŒ¨í„´ìœ¼ë¡œ ì”¬ ì „í™˜ ì‹œì—ë„ ìœ ì§€
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            LoadData(); // °ÔÀÓ ½ÃÀÛ ½Ã µ¥ÀÌÅÍ ·Îµå
-            Debug.Log("MoneyManager »ı¼ºµÊ - µ¥ÀÌÅÍ ·Îµå ¿Ï·á");
+            LoadData(); // ê²Œì„ ì‹œì‘ ì‹œ ë°ì´í„° ë¡œë“œ
+            Debug.Log("MoneyManager ìƒì„±ë¨ - ë°ì´í„° ë¡œë“œ ì™„ë£Œ");
         }
         else
         {
-            Debug.Log("MoneyManager Áßº¹ »ı¼º ¹æÁö - ±âÁ¸ ¿ÀºêÁ§Æ® À¯Áö");
+            Debug.Log("MoneyManager ì¤‘ë³µ ìƒì„± ë°©ì§€ - ê¸°ì¡´ ì˜¤ë¸Œì íŠ¸ ìœ ì§€");
             Destroy(gameObject);
         }
     }
 
-    #region ÄÚÀÎ ½Ã½ºÅÛ
+    #region ì½”ì¸ ì‹œìŠ¤í…œ
     public void AddCoins(int amount)
     {
         if (amount > 0)
@@ -65,7 +65,7 @@ public class MoneyManager : MonoBehaviour
     }
     #endregion
 
-    #region º¸¼® ½Ã½ºÅÛ
+    #region ë³´ì„ ì‹œìŠ¤í…œ
     public void AddGems(int amount)
     {
         if (amount > 0)
@@ -94,9 +94,9 @@ public class MoneyManager : MonoBehaviour
     }
     #endregion
 
-    #region °æÇèÄ¡ ½Ã½ºÅÛ
+    #region ê²½í—˜ì¹˜ ì‹œìŠ¤í…œ
     /// <summary>
-    /// °æÇèÄ¡ È¹µæ
+    /// ê²½í—˜ì¹˜ íšë“
     /// </summary>
     public void AddExperience(int amount)
     {
@@ -111,7 +111,7 @@ public class MoneyManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Æ¯Á¤ ·¹º§¿¡¼­ ´ÙÀ½ ·¹º§·Î °¡´Âµ¥ ÇÊ¿äÇÑ °æÇèÄ¡
+    /// íŠ¹ì • ë ˆë²¨ì—ì„œ ë‹¤ìŒ ë ˆë²¨ë¡œ ê°€ëŠ”ë° í•„ìš”í•œ ê²½í—˜ì¹˜
     /// </summary>
     public int GetRequiredExpForLevel(int fromLevel)
     {
@@ -119,7 +119,7 @@ public class MoneyManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Æ¯Á¤ ·¹º§±îÁö ÇÊ¿äÇÑ ÃÑ °æÇèÄ¡ (´©Àû)
+    /// íŠ¹ì • ë ˆë²¨ê¹Œì§€ í•„ìš”í•œ ì´ ê²½í—˜ì¹˜ (ëˆ„ì )
     /// </summary>
     public int GetTotalExpForLevel(int targetLevel)
     {
@@ -132,7 +132,7 @@ public class MoneyManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ÇöÀç ·¹º§¿¡¼­ ´ÙÀ½ ·¹º§±îÁö ÇÊ¿äÇÑ °æÇèÄ¡
+    /// í˜„ì¬ ë ˆë²¨ì—ì„œ ë‹¤ìŒ ë ˆë²¨ê¹Œì§€ í•„ìš”í•œ ê²½í—˜ì¹˜
     /// </summary>
     public int GetExpRequiredForNextLevel()
     {
@@ -140,7 +140,7 @@ public class MoneyManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ÇöÀç ·¹º§¿¡¼­ ¾ó¸¶³ª °æÇèÄ¡¸¦ Ã¤¿ü´ÂÁö (0~ÇÊ¿ä°æÇèÄ¡)
+    /// í˜„ì¬ ë ˆë²¨ì—ì„œ ì–¼ë§ˆë‚˜ ê²½í—˜ì¹˜ë¥¼ ì±„ì› ëŠ”ì§€ (0~í•„ìš”ê²½í—˜ì¹˜)
     /// </summary>
     public int GetCurrentLevelProgress()
     {
@@ -149,7 +149,7 @@ public class MoneyManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ÇöÀç ·¹º§ ÁøÇàµµ ÆÛ¼¾Æ® (0.0 ~ 1.0)
+    /// í˜„ì¬ ë ˆë²¨ ì§„í–‰ë„ í¼ì„¼íŠ¸ (0.0 ~ 1.0)
     /// </summary>
     public float GetCurrentLevelProgressPercent()
     {
@@ -159,7 +159,7 @@ public class MoneyManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ·¹º§¾÷ Ã¼Å©
+    /// ë ˆë²¨ì—… ì²´í¬
     /// </summary>
     private void CheckLevelUp()
     {
@@ -167,12 +167,12 @@ public class MoneyManager : MonoBehaviour
         {
             level++;
             OnLevelUp?.Invoke();
-            Debug.Log($"·¹º§¾÷! ÇöÀç ·¹º§: {level}");
+            Debug.Log($"ë ˆë²¨ì—…! í˜„ì¬ ë ˆë²¨: {level}");
         }
     }
     #endregion
 
-    #region µ¥ÀÌÅÍ ÀúÀå/·Îµå
+    #region ë°ì´í„° ì €ì¥/ë¡œë“œ
     public void SaveData()
     {
         PlayerPrefs.SetInt(saveFileName + "_Coins", coins);
@@ -189,13 +189,13 @@ public class MoneyManager : MonoBehaviour
         totalExperience = PlayerPrefs.GetInt(saveFileName + "_TotalExperience", 0);
         level = PlayerPrefs.GetInt(saveFileName + "_Level", 1);
 
-        // ·Îµå ÈÄ ·¹º§ Àç°è»ê (µ¥ÀÌÅÍ ¹«°á¼º È®º¸)
+        // ë¡œë“œ í›„ ë ˆë²¨ ì¬ê³„ì‚° (ë°ì´í„° ë¬´ê²°ì„± í™•ë³´)
         RecalculateLevel();
         UpdateAllUI();
     }
 
     /// <summary>
-    /// ÃÑ °æÇèÄ¡¸¦ ±â¹İÀ¸·Î ·¹º§ Àç°è»ê
+    /// ì´ ê²½í—˜ì¹˜ë¥¼ ê¸°ë°˜ìœ¼ë¡œ ë ˆë²¨ ì¬ê³„ì‚°
     /// </summary>
     private void RecalculateLevel()
     {
@@ -217,7 +217,7 @@ public class MoneyManager : MonoBehaviour
     }
     #endregion
 
-    #region UI ¾÷µ¥ÀÌÆ®
+    #region UI ì—…ë°ì´íŠ¸
     private void UpdateAllUI()
     {
         MoneyUIManager[] uiManagers = FindObjectsOfType<MoneyUIManager>();
@@ -229,11 +229,11 @@ public class MoneyManager : MonoBehaviour
     }
     #endregion
 
-    #region µğ¹ö±× ±â´É
+    #region ë””ë²„ê·¸ ê¸°ëŠ¥
     [System.Serializable]
     public class DebugPanel
     {
-        [Header("µğ¹ö±× - ÀçÈ­ Ãß°¡")]
+        [Header("ë””ë²„ê·¸ - ì¬í™” ì¶”ê°€")]
         public int debugCoinsToAdd = 100;
         public int debugGemsToAdd = 10;
         public int debugExpToAdd = 50;
@@ -241,25 +241,25 @@ public class MoneyManager : MonoBehaviour
 
     public DebugPanel debug;
 
-    [ContextMenu("µğ¹ö±×: ÄÚÀÎ Ãß°¡")]
+    [ContextMenu("ë””ë²„ê·¸: ì½”ì¸ ì¶”ê°€")]
     public void DebugAddCoins()
     {
         AddCoins(debug.debugCoinsToAdd);
     }
 
-    [ContextMenu("µğ¹ö±×: º¸¼® Ãß°¡")]
+    [ContextMenu("ë””ë²„ê·¸: ë³´ì„ ì¶”ê°€")]
     public void DebugAddGems()
     {
         AddGems(debug.debugGemsToAdd);
     }
 
-    [ContextMenu("µğ¹ö±×: °æÇèÄ¡ Ãß°¡")]
+    [ContextMenu("ë””ë²„ê·¸: ê²½í—˜ì¹˜ ì¶”ê°€")]
     public void DebugAddExperience()
     {
         AddExperience(debug.debugExpToAdd);
     }
 
-    [ContextMenu("µğ¹ö±×: µ¥ÀÌÅÍ ¸®¼Â")]
+    [ContextMenu("ë””ë²„ê·¸: ë°ì´í„° ë¦¬ì…‹")]
     public void DebugResetData()
     {
         ResetData();

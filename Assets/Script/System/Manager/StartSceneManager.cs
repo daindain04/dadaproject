@@ -94,11 +94,10 @@ public class StartSceneManager : MonoBehaviour
 
     void InitializeTexts()
     {
-        Debug.Log("InitializeTexts called - not clearing texts; just logging contents.");
-
+        
         if (synopsis1Texts != null)
         {
-            Debug.Log($"Synopsis1 has {synopsis1Texts.Length} texts");
+            
             for (int i = 0; i < synopsis1Texts.Length; i++)
                 if (synopsis1Texts[i] != null)
                     Debug.Log($"Synopsis1 Text {i}: '{synopsis1Texts[i].text}'");
@@ -106,7 +105,7 @@ public class StartSceneManager : MonoBehaviour
 
         if (synopsis2Texts != null)
         {
-            Debug.Log($"Synopsis2 has {synopsis2Texts.Length} texts");
+           
             for (int i = 0; i < synopsis2Texts.Length; i++)
                 if (synopsis2Texts[i] != null)
                     Debug.Log($"Synopsis2 Text {i}: '{synopsis2Texts[i].text}'");

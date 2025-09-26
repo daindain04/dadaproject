@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public enum GameState
@@ -13,6 +14,8 @@ public enum GameState
     GameOver
 }
 
+public enum CapyGameDifficulty { Easy, Normal, Hard }
+
 public class CapySaysGameManager : MonoBehaviour
 {
     [Header("Game Settings (Adjust in Inspector)")]
@@ -21,6 +24,7 @@ public class CapySaysGameManager : MonoBehaviour
     [SerializeField] private float inputTimeLimit = 4f;
     [SerializeField] private int maxLives = 1;
     [SerializeField] private float sequenceImageScale = 0.5f;
+    [SerializeField] private CapyGameDifficulty difficulty = CapyGameDifficulty.Easy; // 난이도 설정
 
     [Header("UI References")]
     [SerializeField] private TMP_Text roundText;
@@ -41,6 +45,10 @@ public class CapySaysGameManager : MonoBehaviour
     [SerializeField] private GameObject successImage;
     [SerializeField] private GameObject failImage;
 
+    [Header("Game End Panels")]
+    [SerializeField] private GameObject gameOverPanel;    // 게임 오버 패널
+    [SerializeField] private GameObject gameWinPanel;     // 게임 승리 패널
+
     private List<int> currentSequence = new List<int>();
     private List<int> playerInputs = new List<int>();
 
@@ -60,6 +68,12 @@ public class CapySaysGameManager : MonoBehaviour
         // 시작할 때 커튼 활성화
         if (curtainImage != null)
             curtainImage.SetActive(true);
+
+        // 패널들 초기화
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(false);
+        if (gameWinPanel != null)
+            gameWinPanel.SetActive(false);
 
         // Bind button callbacks dynamically
         for (int i = 0; i < buttons.Length; i++)
@@ -296,15 +310,91 @@ public class CapySaysGameManager : MonoBehaviour
             livesImages[i].enabled = (i < livesLeft);
     }
 
+    /// <summary>
+    /// 난이도별 보상 지급
+    /// </summary>
+    private void GiveReward()
+    {
+        if (MoneyManager.Instance == null)
+        {
+            Debug.LogWarning("MoneyManager 인스턴스를 찾을 수 없습니다!");
+            return;
+        }
+
+        switch (difficulty)
+        {
+            case CapyGameDifficulty.Easy:
+                MoneyManager.Instance.AddCoins(100);
+                MoneyManager.Instance.AddGems(1);
+                MoneyManager.Instance.AddExperience(10);
+                Debug.Log("Easy 난이도 클리어! 코인 100, 보석 1, 경험치 10 획득");
+                break;
+
+            case CapyGameDifficulty.Normal:
+                MoneyManager.Instance.AddCoins(200);
+                MoneyManager.Instance.AddGems(2);
+                MoneyManager.Instance.AddExperience(20);
+                Debug.Log("Normal 난이도 클리어! 코인 200, 보석 2, 경험치 20 획득");
+                break;
+
+            case CapyGameDifficulty.Hard:
+                MoneyManager.Instance.AddCoins(300);
+                MoneyManager.Instance.AddGems(4);
+                MoneyManager.Instance.AddExperience(30);
+                Debug.Log("Hard 난이도 클리어! 코인 300, 보석 4, 경험치 30 획득");
+                break;
+        }
+    }
+
     private void HandleWin()
     {
         Debug.Log("You Win!");
-        // TODO: Win 처리 (보상, 다음 화면 등)
+
+        // 보상 지급
+        GiveReward();
+
+        // 승리 패널 표시
+        if (gameWinPanel != null)
+        {
+            gameWinPanel.SetActive(true);
+        }
     }
 
     private void HandleGameOver()
     {
         Debug.Log("Game Over");
-        // TODO: Game Over 처리 (리트라이, 메인 메뉴 등)
+
+        // 게임 오버 패널 표시
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+        }
+    }
+
+    /// <summary>
+    /// 게임오버 패널에서 재시작 버튼 클릭 시 호출
+    /// </summary>
+    public void OnGameOverRestartPressed()
+    {
+        // 현재 씬을 다시 로드하여 게임 재시작
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    /// <summary>
+    /// 게임오버 패널에서 나가기 버튼 클릭 시 호출
+    /// </summary>
+    public void OnGameOverExitPressed()
+    {
+        // 메인 씬으로 돌아가기
+        SceneManager.LoadScene("Main");
+    }
+
+    /// <summary>
+    /// 게임승리 패널에서 확인 버튼 클릭 시 호출
+    /// </summary>
+    public void OnGameWinConfirmPressed()
+    {
+        // 메인 씬으로 돌아가기
+        SceneManager.LoadScene("Main");
     }
 }
