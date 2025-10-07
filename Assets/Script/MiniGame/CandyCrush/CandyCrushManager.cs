@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class CandyCrushManager : MonoBehaviour
 {
-    //½Ì±ÛÅæ 
+    //ì‹±ê¸€í†¤ 
     public static CandyCrushManager instance = null;
 
     public int currentLevel = 1;
@@ -176,27 +176,27 @@ public class CandyCrushManager : MonoBehaviour
     {
         successPanel.SetActive(true);
 
-        // MoneyManager¸¦ ÅëÇÑ º¸»ó Áö±Ş
+        // MoneyManagerë¥¼ í†µí•œ ë³´ìƒ ì§€ê¸‰
         switch (currentLevel)
         {
-            case 1: // ³­ÀÌµµ ÇÏ
+            case 1: // ë‚œì´ë„ í•˜
                 MoneyManager.Instance.AddCoins(200);
                 MoneyManager.Instance.AddGems(1);
                 MoneyManager.Instance.AddExperience(10);
                 break;
-            case 2: // ³­ÀÌµµ Áß
+            case 2: // ë‚œì´ë„ ì¤‘
                 MoneyManager.Instance.AddCoins(250);
                 MoneyManager.Instance.AddGems(2);
                 MoneyManager.Instance.AddExperience(20);
                 break;
-            case 3: // ³­ÀÌµµ »ó
+            case 3: // ë‚œì´ë„ ìƒ
                 MoneyManager.Instance.AddCoins(300);
                 MoneyManager.Instance.AddGems(3);
                 MoneyManager.Instance.AddExperience(30);
                 break;
         }
 
-        // ¼º°ø UI ¶ç¿ì±â
+        // ì„±ê³µ UI ë„ìš°ê¸°
         successPanel.SetActive(true);
         Debug.Log("Success");
     }
@@ -205,14 +205,14 @@ public class CandyCrushManager : MonoBehaviour
     {
         moveText.text = "" + remainMove;
 
-        // ¸ğµç ÅØ½ºÆ® ÃÊ±â ºñÈ°¼ºÈ­
+        // ëª¨ë“  í…ìŠ¤íŠ¸ ì´ˆê¸° ë¹„í™œì„±í™”
         foreach (TextMeshProUGUI t in candyTexts)
         {
             t.gameObject.SetActive(false);
         }
 
-        // ³­ÀÌµµ¿¡ µû¶ó º¸¿©ÁÙ »ö»ó¸¸ È°¼ºÈ­
-        if (currentLevel == 1) // ÇÏ
+        // ë‚œì´ë„ì— ë”°ë¼ ë³´ì—¬ì¤„ ìƒ‰ìƒë§Œ í™œì„±í™”
+        if (currentLevel == 1) // í•˜
         {
             candyTexts[0].gameObject.SetActive(true); // Blue
             candyTexts[1].gameObject.SetActive(true); // Green
@@ -220,7 +220,7 @@ public class CandyCrushManager : MonoBehaviour
             candyTexts[0].text = "" + candyGoal[0];
             candyTexts[1].text = "" + candyGoal[1];
         }
-        else if (currentLevel == 2) // Áß
+        else if (currentLevel == 2) // ì¤‘
         {
             candyTexts[2].gameObject.SetActive(true); // Purple
             candyTexts[3].gameObject.SetActive(true); // Pink
@@ -228,7 +228,7 @@ public class CandyCrushManager : MonoBehaviour
             candyTexts[2].text = "" + candyGoal[2];
             candyTexts[3].text = "" + candyGoal[3];
         }
-        else if (currentLevel == 3) // »ó
+        else if (currentLevel == 3) // ìƒ
         {
             candyTexts[0].gameObject.SetActive(true); // Blue
             candyTexts[4].gameObject.SetActive(true); // Orange
@@ -240,11 +240,11 @@ public class CandyCrushManager : MonoBehaviour
 
     public void OnClickHome()
     {
-        SceneManager.LoadScene("Main"); // ¸ŞÀÎ ¾À ÀÌ¸§
+        SceneManager.LoadScene("Main"); // ë©”ì¸ ì”¬ ì´ë¦„
     }
 
     public void OnClickRetry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // ÇöÀç ¾À ´Ù½Ã ·Îµå
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // í˜„ì¬ ì”¬ ë‹¤ì‹œ ë¡œë“œ
     }
 }

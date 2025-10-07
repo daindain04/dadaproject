@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,7 +18,6 @@ public class Capybara : MonoBehaviour
     private float slideDuration = 0.8f;
     private float slidePosY = -2.86f;
     private float initPosY;
-
     private Vector2 slideBoxColliderOffset = new Vector2(0.18f, -0.27f);
     private Vector2 slideBoxColliderSize = new Vector2(2.27f, 1.47f);
     private Vector2 initBoxColliderOffset;
@@ -35,20 +34,28 @@ public class Capybara : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CapybaraGameManager.instance.isGameOver == false) {
-            if (Input.GetKey(KeyCode.UpArrow) && isGrounded) {
+        if (CapybaraGameManager.instance.isGameOver == false)
+        {
+            // GetKeyDown으로 변경: 키를 처음 누르는 순간만 인식
+            if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
+            {
                 Jump();
-            } else if (Input.GetKey(KeyCode.DownArrow) && isGrounded) {
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && isGrounded && !isSliding)
+            {
+                // isSliding 체크 추가: 슬라이딩 중에는 중복 실행 방지
                 SlideBegin();
             }
 
-            if (isSliding && Time.time - slideStartTime >= slideDuration) {
+            if (isSliding && Time.time - slideStartTime >= slideDuration)
+            {
                 SlideEnd();
             }
         }
     }
 
-    private void Jump() {
+    private void Jump()
+    {
         isGrounded = false;
         rigidBody.velocity = Vector2.up * jumpForce;
         animator.SetBool("isJumping", true);
@@ -59,23 +66,22 @@ public class Capybara : MonoBehaviour
         isGrounded = false;
         isSliding = true;
         slideStartTime = Time.time;
-
         initPosY = transform.position.y;
         transform.position = new Vector3(transform.position.x, slidePosY, transform.position.z);
 
         initBoxColliderOffset = boxCollider.offset;
         initBoxColliderSize = boxCollider.size;
-
         boxCollider.offset = slideBoxColliderOffset;
         boxCollider.size = slideBoxColliderSize;
 
         animator.SetBool("isSliding", true);
 
-        //  �����̵� Ƚ�� ���� (GameManager���� �˸�)
+        // 슬라이딩 횟수 차감 (GameManager에게 알림)
         CapybaraGameManager.instance.HandleSlideAction();
     }
 
-    private void SlideEnd() {
+    private void SlideEnd()
+    {
         isGrounded = true;
         isSliding = false;
         transform.position = new Vector3(transform.position.x, initPosY, transform.position.z);
@@ -84,16 +90,18 @@ public class Capybara : MonoBehaviour
         animator.SetBool("isSliding", false);
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.tag == "Ground") {
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
             isGrounded = true;
             animator.SetBool("isJumping", false);
         }
     }
 
-    public void SetGameOver() {
+    public void SetGameOver()
+    {
         Jump();
-
         animator.enabled = false;
         boxCollider.enabled = false;
         Destroy(gameObject, 2f);

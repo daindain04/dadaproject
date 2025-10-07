@@ -43,43 +43,53 @@ public class MenuToggle : MonoBehaviour
     public void SetRoom(string room)
     {
         StopAllCoroutines(); // 이전 애니메이션 중단
-        isVisible = false; // 리스트 상태 초기화
 
         if (room == "Main")
         {
-            // 모든 버튼을 먼저 꺼주고
+            // 주방 버튼들 숨기기
             foreach (var btn in kitchenRoomButtons)
             {
                 btn.gameObject.SetActive(false);
                 btn.localScale = new Vector3(1, 0, 1);
             }
-            // 리스트 전환
-            currentList = mainRoomButtons;
 
-            // Room Switch 버튼들은 별도로 관리하지 않음 (리스트에서 관리)
-            // if (MoveToKitchenB != null) MoveToKitchenB.SetActive(true);
-            // if (MoveToMainB != null) MoveToMainB.SetActive(false);
+            // 메인방 버튼들 즉시 활성화
+            currentList = mainRoomButtons;
+            foreach (var btn in mainRoomButtons)
+            {
+                btn.gameObject.SetActive(true);
+                btn.localScale = Vector3.one; // 즉시 보이는 상태로
+            }
+
+            isVisible = true; // 보이는 상태로 설정
 
             // UI 이미지를 메인방용으로 변경
             ChangeUISprites(mainRoomSprites);
         }
         else if (room == "Kitchen")
         {
+            // 메인방 버튼들 숨기기
             foreach (var btn in mainRoomButtons)
             {
                 btn.gameObject.SetActive(false);
                 btn.localScale = new Vector3(1, 0, 1);
             }
-            currentList = kitchenRoomButtons;
 
-            // Room Switch 버튼들은 별도로 관리하지 않음 (리스트에서 관리)
-            // if (MoveToKitchenB != null) MoveToKitchenB.SetActive(false);
-            // if (MoveToMainB != null) MoveToMainB.SetActive(true);
+            // 주방 버튼들 즉시 활성화
+            currentList = kitchenRoomButtons;
+            foreach (var btn in kitchenRoomButtons)
+            {
+                btn.gameObject.SetActive(true);
+                btn.localScale = Vector3.one; // 즉시 보이는 상태로
+            }
+
+            isVisible = true; // 보이는 상태로 설정
 
             // UI 이미지를 주방용으로 변경
             ChangeUISprites(kitchenRoomSprites);
         }
-        Debug.Log("SetRoom 호출됨: " + room);
+
+        Debug.Log($"SetRoom 호출됨: {room}, isVisible: {isVisible}");
     }
 
     // UI 스프라이트 변경 메서드

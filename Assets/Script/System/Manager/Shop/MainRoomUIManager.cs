@@ -1,13 +1,17 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections.Generic;
 
 public class MainRoomUIManager : MonoBehaviour
 {
-    [Header("¸ŞÀÎ¹æ UI ¿ÀºêÁ§Æ®µé")]
+    [Header("ë©”ì¸ë°© UI ì˜¤ë¸Œì íŠ¸ë“¤")]
     [SerializeField] private List<GameObject> mainRoomUIObjects = new List<GameObject>();
 
-    [Header("°³º° UI ÄÄÆ÷³ÍÆ®µé (¼±ÅÃ»çÇ×)")]
+    [Header("ê°œë³„ UI ì»´í¬ë„ŒíŠ¸ë“¤ (ì„ íƒì‚¬í•­)")]
     [SerializeField] private List<MonoBehaviour> mainRoomUIComponents = new List<MonoBehaviour>();
+
+
+    [Header("ItemTabManager ì°¸ì¡°")]
+    [SerializeField] private ItemTabManager itemTabManager;
 
     private static MainRoomUIManager instance;
     public static MainRoomUIManager Instance
@@ -24,7 +28,7 @@ public class MainRoomUIManager : MonoBehaviour
 
     private void Awake()
     {
-        // ½Ì±ÛÅæ ÆĞÅÏ Àû¿ë
+        // ì‹±ê¸€í†¤ íŒ¨í„´ ì ìš©
         if (instance == null)
         {
             instance = this;
@@ -38,44 +42,79 @@ public class MainRoomUIManager : MonoBehaviour
 
     private void Start()
     {
-        // ½ÃÀÛ ½Ã ¸ğµç ¸ŞÀÎ¹æ UI È°¼ºÈ­
+        // ì‹œì‘ ì‹œ ëª¨ë“  ë©”ì¸ë°© UI í™œì„±í™”
         ShowMainRoomUI();
     }
 
     /// <summary>
-    /// ¸ŞÀÎ¹æ UI¸¦ ¸ğµÎ È°¼ºÈ­ÇÕ´Ï´Ù
+    /// ë©”ì¸ë°© UIë¥¼ ëª¨ë‘ í™œì„±í™”í•©ë‹ˆë‹¤
     /// </summary>
     public void ShowMainRoomUI()
     {
         SetMainRoomUIActive(true);
-        Debug.Log("¸ŞÀÎ¹æ UI È°¼ºÈ­µÊ");
+
+        // â­ ItemTabManager ì—…ë°ì´íŠ¸ ì¬ê°œ
+        if (itemTabManager != null)
+        {
+            itemTabManager.EnableUpdates();
+        }
+
+        Debug.Log("ë©”ì¸ë°© UI í™œì„±í™”ë¨");
     }
 
     /// <summary>
-    /// ¸ŞÀÎ¹æ UI¸¦ ¸ğµÎ ºñÈ°¼ºÈ­ÇÕ´Ï´Ù (»óÁ¡ ÁøÀÔ ½Ã È£Ãâ)
+    /// ë©”ì¸ë°© UIë¥¼ ëª¨ë‘ ë¹„í™œì„±í™”í•©ë‹ˆë‹¤ (ìƒì  ì§„ì… ì‹œ í˜¸ì¶œ)
     /// </summary>
     public void HideMainRoomUI()
     {
+        Debug.Log("=== HideMainRoomUI í˜¸ì¶œë¨ ===");
+        Debug.Log($"ë¦¬ìŠ¤íŠ¸ í¬ê¸°: {mainRoomUIObjects.Count}");
+
+        for (int i = 0; i < mainRoomUIObjects.Count; i++)
+        {
+            if (mainRoomUIObjects[i] != null)
+            {
+                Debug.Log($"Element {i}: {mainRoomUIObjects[i].name} - í˜„ì¬ ìƒíƒœ: {mainRoomUIObjects[i].activeSelf}");
+                mainRoomUIObjects[i].SetActive(false);
+                Debug.Log($"Element {i}: {mainRoomUIObjects[i].name} - ë³€ê²½ í›„: {mainRoomUIObjects[i].activeSelf}");
+            }
+            else
+            {
+                Debug.LogError($"Element {i}: NULL ì°¸ì¡°!");
+            }
+        }
+
         SetMainRoomUIActive(false);
-        Debug.Log("¸ŞÀÎ¹æ UI ºñÈ°¼ºÈ­µÊ");
+
+        if (itemTabManager != null)
+        {
+            itemTabManager.DisableUpdates();
+        }
+
+        Debug.Log("ë©”ì¸ë°© UI ë¹„í™œì„±í™” ì™„ë£Œ");
     }
 
     /// <summary>
-    /// ¸ŞÀÎ¹æ UI È°¼ºÈ­/ºñÈ°¼ºÈ­¸¦ ÀÏ°ı Ã³¸®ÇÕ´Ï´Ù
+    /// ë©”ì¸ë°© UI í™œì„±í™”/ë¹„í™œì„±í™”ë¥¼ ì¼ê´„ ì²˜ë¦¬í•©ë‹ˆë‹¤
     /// </summary>
-    /// <param name="isActive">È°¼ºÈ­ ¿©ºÎ</param>
+    /// <param name="isActive">í™œì„±í™” ì—¬ë¶€</param>
     private void SetMainRoomUIActive(bool isActive)
     {
-        // GameObject ¸®½ºÆ® Ã³¸®
+        // GameObject ë¦¬ìŠ¤íŠ¸ ì²˜ë¦¬
         foreach (GameObject uiObject in mainRoomUIObjects)
         {
             if (uiObject != null)
             {
+                Debug.Log($"UI ì˜¤ë¸Œì íŠ¸ {uiObject.name} ì„(ë¥¼) {isActive}ë¡œ ì„¤ì •"); // â­ ì¶”ê°€
                 uiObject.SetActive(isActive);
+            }
+            else
+            {
+                Debug.LogWarning("nullì¸ UI ì˜¤ë¸Œì íŠ¸ê°€ ë¦¬ìŠ¤íŠ¸ì— ìˆìŠµë‹ˆë‹¤!"); // â­ ì¶”ê°€
             }
         }
 
-        // MonoBehaviour ÄÄÆ÷³ÍÆ® ¸®½ºÆ® Ã³¸®
+        // MonoBehaviour ì»´í¬ë„ŒíŠ¸ ë¦¬ìŠ¤íŠ¸ ì²˜ë¦¬
         foreach (MonoBehaviour uiComponent in mainRoomUIComponents)
         {
             if (uiComponent != null)
@@ -86,9 +125,9 @@ public class MainRoomUIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ·±Å¸ÀÓ¿¡¼­ ¸ŞÀÎ¹æ UI ¿ÀºêÁ§Æ®¸¦ Ãß°¡ÇÕ´Ï´Ù
+    /// ëŸ°íƒ€ì„ì—ì„œ ë©”ì¸ë°© UI ì˜¤ë¸Œì íŠ¸ë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤
     /// </summary>
-    /// <param name="uiObject">Ãß°¡ÇÒ UI ¿ÀºêÁ§Æ®</param>
+    /// <param name="uiObject">ì¶”ê°€í•  UI ì˜¤ë¸Œì íŠ¸</param>
     public void AddMainRoomUIObject(GameObject uiObject)
     {
         if (uiObject != null && !mainRoomUIObjects.Contains(uiObject))
@@ -98,9 +137,9 @@ public class MainRoomUIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ·±Å¸ÀÓ¿¡¼­ ¸ŞÀÎ¹æ UI ÄÄÆ÷³ÍÆ®¸¦ Ãß°¡ÇÕ´Ï´Ù
+    /// ëŸ°íƒ€ì„ì—ì„œ ë©”ì¸ë°© UI ì»´í¬ë„ŒíŠ¸ë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤
     /// </summary>
-    /// <param name="uiComponent">Ãß°¡ÇÒ UI ÄÄÆ÷³ÍÆ®</param>
+    /// <param name="uiComponent">ì¶”ê°€í•  UI ì»´í¬ë„ŒíŠ¸</param>
     public void AddMainRoomUIComponent(MonoBehaviour uiComponent)
     {
         if (uiComponent != null && !mainRoomUIComponents.Contains(uiComponent))
@@ -110,9 +149,9 @@ public class MainRoomUIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ¸ŞÀÎ¹æ UI ¿ÀºêÁ§Æ®¸¦ Á¦°ÅÇÕ´Ï´Ù
+    /// ë©”ì¸ë°© UI ì˜¤ë¸Œì íŠ¸ë¥¼ ì œê±°í•©ë‹ˆë‹¤
     /// </summary>
-    /// <param name="uiObject">Á¦°ÅÇÒ UI ¿ÀºêÁ§Æ®</param>
+    /// <param name="uiObject">ì œê±°í•  UI ì˜¤ë¸Œì íŠ¸</param>
     public void RemoveMainRoomUIObject(GameObject uiObject)
     {
         if (mainRoomUIObjects.Contains(uiObject))
@@ -122,9 +161,9 @@ public class MainRoomUIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ¸ŞÀÎ¹æ UI ÄÄÆ÷³ÍÆ®¸¦ Á¦°ÅÇÕ´Ï´Ù
+    /// ë©”ì¸ë°© UI ì»´í¬ë„ŒíŠ¸ë¥¼ ì œê±°í•©ë‹ˆë‹¤
     /// </summary>
-    /// <param name="uiComponent">Á¦°ÅÇÒ UI ÄÄÆ÷³ÍÆ®</param>
+    /// <param name="uiComponent">ì œê±°í•  UI ì»´í¬ë„ŒíŠ¸</param>
     public void RemoveMainRoomUIComponent(MonoBehaviour uiComponent)
     {
         if (mainRoomUIComponents.Contains(uiComponent))
@@ -134,9 +173,9 @@ public class MainRoomUIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ÇöÀç ¸ŞÀÎ¹æ UI°¡ È°¼ºÈ­µÇ¾î ÀÖ´ÂÁö È®ÀÎÇÕ´Ï´Ù
+    /// í˜„ì¬ ë©”ì¸ë°© UIê°€ í™œì„±í™”ë˜ì–´ ìˆëŠ”ì§€ í™•ì¸í•©ë‹ˆë‹¤
     /// </summary>
-    /// <returns>È°¼ºÈ­ ¿©ºÎ</returns>
+    /// <returns>í™œì„±í™” ì—¬ë¶€</returns>
     public bool IsMainRoomUIActive()
     {
         if (mainRoomUIObjects.Count > 0)
@@ -147,7 +186,7 @@ public class MainRoomUIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ¸ŞÀÎ¹æ UI »óÅÂ¸¦ Åä±ÛÇÕ´Ï´Ù
+    /// ë©”ì¸ë°© UI ìƒíƒœë¥¼ í† ê¸€í•©ë‹ˆë‹¤
     /// </summary>
     public void ToggleMainRoomUI()
     {
@@ -156,11 +195,13 @@ public class MainRoomUIManager : MonoBehaviour
 
         if (currentState)
         {
-            Debug.Log("¸ŞÀÎ¹æ UI ºñÈ°¼ºÈ­µÊ");
+            Debug.Log("ë©”ì¸ë°© UI ë¹„í™œì„±í™”ë¨");
         }
         else
         {
-            Debug.Log("¸ŞÀÎ¹æ UI È°¼ºÈ­µÊ");
+            Debug.Log("ë©”ì¸ë°© UI í™œì„±í™”ë¨");
         }
     }
+
+
 }

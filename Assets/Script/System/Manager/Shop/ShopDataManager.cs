@@ -163,6 +163,30 @@ public class ShopDataManager : MonoBehaviour
         {
             applier.ResetAllFurniture();
         }
+
+        // 악세사리 리셋 요청 (AccessoryManager가 있는 경우에만)
+        AccessoryManager accessoryManager = FindObjectOfType<AccessoryManager>();
+        if (accessoryManager != null)
+        {
+            accessoryManager.ResetAllAccessories();
+        }
+        else
+        {
+            // AccessoryManager가 없어도 PlayerPrefs는 삭제
+            PlayerPrefs.DeleteKey("CurrentAccessory");
+        }
+
+        // 인벤토리 리셋 (음식/장난감 데이터 초기화)
+        if (Inventory.Instance != null)
+        {
+            Inventory.Instance.ResetData();
+        }
+        else
+        {
+            // Inventory가 없어도 PlayerPrefs는 삭제
+            PlayerPrefs.DeleteKey("InventoryData");
+        }
+
+        Debug.Log("모든 구매 데이터가 초기화되었습니다. (가구, 악세사리, 음식, 장난감)");
     }
 }
-

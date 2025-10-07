@@ -27,6 +27,12 @@ public class ShopItem : MonoBehaviour
     public CurrencyType currencyType = CurrencyType.Coin;
     public ItemType itemType = ItemType.MainRoomFurniture;
 
+    [Header("아이템 데이터 (음식/장난감용)")]
+    public CapyItemData itemData;
+
+    [Header("악세사리 정보 (Clothing용)")]
+    public int accessoryIndex = -1; // 악세사리 배열에서의 인덱스 (0~8)
+
     [Header("UI 요소")]
     public Button itemButton;
 
@@ -38,11 +44,9 @@ public class ShopItem : MonoBehaviour
     private void Start()
     {
         SetupButtons();
-
         // ShopDataManager 이벤트 구독
         ShopDataManager.OnShopDataLoaded += CheckPurchaseStatus;
         ShopDataManager.OnItemPurchased += OnItemPurchased;
-
         // 초기 구매 상태 확인
         CheckPurchaseStatus();
     }
@@ -67,15 +71,24 @@ public class ShopItem : MonoBehaviour
     {
         if (ShopDataManager.Instance != null)
         {
-            bool shouldBePurchased = ShopDataManager.Instance.IsItemPurchased(itemID);
-            SetPurchased(shouldBePurchased);
+            // 가구류와 악세사리는 구매 상태 확인 (음식/장난감은 반복 구매 가능)
+            if (itemType == ItemType.MainRoomFurniture ||
+                itemType == ItemType.KitchenFurniture ||
+                itemType == ItemType.Clothing)
+            {
+                bool shouldBePurchased = ShopDataManager.Instance.IsItemPurchased(itemID);
+                SetPurchased(shouldBePurchased);
+            }
         }
     }
 
     private void OnItemPurchased(int purchasedItemID)
     {
-        // 이 아이템이 구매된 경우에만 UI 업데이트
-        if (purchasedItemID == itemID)
+        // 가구류와 악세사리는 구매 상태 업데이트 (음식/장난감은 반복 구매 가능)
+        if (purchasedItemID == itemID &&
+            (itemType == ItemType.MainRoomFurniture ||
+             itemType == ItemType.KitchenFurniture ||
+             itemType == ItemType.Clothing))
         {
             SetPurchased(true);
         }
@@ -83,7 +96,11 @@ public class ShopItem : MonoBehaviour
 
     public void OnItemButtonClicked()
     {
-        if (isPurchased)
+        // 가구류와 악세사리는 구매 상태 확인
+        if (isPurchased &&
+            (itemType == ItemType.MainRoomFurniture ||
+             itemType == ItemType.KitchenFurniture ||
+             itemType == ItemType.Clothing))
         {
             Debug.Log($"이미 구매한 아이템입니다: {itemName}");
             return;
@@ -103,12 +120,123 @@ public class ShopItem : MonoBehaviour
 
     public void PurchaseItem()
     {
-        if (isPurchased)
+        // 가구류와 악세사리는 구매 상태 확인
+        if (isPurchased &&
+            (itemType == ItemType.MainRoomFurniture ||
+             itemType == ItemType.KitchenFurniture ||
+             itemType == ItemType.Clothing))
         {
             Debug.Log($"이미 구매한 아이템입니다: {itemName}");
             return;
         }
 
+        // 돈 있는지 확인
+        bool hasEnoughMoney = false;
+        if (currencyType == CurrencyType.Coin)
+        {
+            hasEnoughMoney = MoneyManager.Instance != null && MoneyManager.Instance.coins >= price;
+        }
+        else
+        {
+            hasEnoughMoney = MoneyManager.Instance != null && MoneyManager.Instance.gems >= price;
+        }
+
+        if (!hasEnoughMoney)
+        {
+            string currencyName = currencyType == CurrencyType.Coin ? "코인" : "보석";
+            Debug.Log($"{currencyName}이 부족합니다!");
+            return;
+        }
+
+        // 구매 처리
+        switch (itemType)
+        {
+            case ItemType.Food:
+            case ItemType.Toy:
+                PurchaseFoodOrToy();
+                break;
+            case ItemType.Clothing:
+                PurchaseClothing();
+                break;
+            default:
+                PurchaseFurniture();
+                break;
+        }
+    }
+
+    private void PurchaseFoodOrToy()
+    {
+        if (itemData == null)
+        {
+            Debug.LogError($"아이템 데이터가 설정되지 않았습니다: {itemName}");
+            return;
+        }
+
+        if (MoneyManager.Instance == null || Inventory.Instance == null)
+        {
+            Debug.LogError("MoneyManager 또는 Inventory가 없습니다!");
+            return;
+        }
+
+        // 돈 차감
+        if (currencyType == CurrencyType.Coin)
+        {
+            MoneyManager.Instance.SpendCoins(price);
+        }
+        else
+        {
+            MoneyManager.Instance.SpendGems(price);
+        }
+
+        // 인벤토리에 아이템 추가
+        Inventory.Instance.Add(itemData, 1);
+
+        Debug.Log($"{itemName}을(를) 구매했습니다! 인벤토리에 추가됨");
+    }
+
+    private void PurchaseClothing()
+    {
+        if (accessoryIndex < 0)
+        {
+            Debug.LogError($"악세사리 인덱스가 설정되지 않았습니다: {itemName}");
+            return;
+        }
+
+        if (AccessoryManager.Instance == null)
+        {
+            Debug.LogError("AccessoryManager가 없습니다!");
+            return;
+        }
+
+        if (ShopDataManager.Instance != null)
+        {
+            bool purchaseSuccess = ShopDataManager.Instance.PurchaseItem(
+                itemID,
+                itemName,
+                price,
+                currencyType == CurrencyType.Gem
+            );
+
+            if (purchaseSuccess)
+            {
+                // 악세사리 착용
+                AccessoryManager.Instance.EquipAccessory(accessoryIndex);
+                Debug.Log($"{itemName}을(를) 구매하고 착용했습니다!");
+            }
+            else
+            {
+                string currencyName = currencyType == CurrencyType.Coin ? "코인" : "보석";
+                Debug.Log($"{currencyName}이 부족합니다!");
+            }
+        }
+        else
+        {
+            Debug.LogError("ShopDataManager.Instance가 null입니다!");
+        }
+    }
+
+    private void PurchaseFurniture()
+    {
         if (ShopDataManager.Instance != null)
         {
             bool purchaseSuccess = ShopDataManager.Instance.PurchaseItem(
@@ -123,7 +251,6 @@ public class ShopItem : MonoBehaviour
                 string currencyName = currencyType == CurrencyType.Coin ? "코인" : "보석";
                 Debug.Log($"{currencyName}이 부족합니다!");
             }
-            // 성공한 경우는 이벤트로 처리됨
         }
         else
         {
@@ -133,11 +260,13 @@ public class ShopItem : MonoBehaviour
 
     private void UpdatePurchaseState()
     {
-        // 구매 버튼 상태 업데이트
-        if (itemButton != null)
+        // 가구류와 악세사리는 구매 버튼 비활성화
+        if (itemButton != null &&
+            (itemType == ItemType.MainRoomFurniture ||
+             itemType == ItemType.KitchenFurniture ||
+             itemType == ItemType.Clothing))
         {
             itemButton.interactable = !isPurchased;
-
             // 버튼 색상 변경 (선택사항)
             var colors = itemButton.colors;
             colors.normalColor = isPurchased ? Color.gray : Color.white;

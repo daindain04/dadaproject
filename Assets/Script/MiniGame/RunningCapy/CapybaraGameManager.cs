@@ -1,4 +1,4 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -18,7 +18,7 @@ public class CapybaraGameManager : MonoBehaviour
     public Difficulty currentDifficulty = Difficulty.Easy;
     private int targetScore = 200;
 
-    [Header("½½¶óÀÌµù È½¼ö")]
+    [Header("ìŠ¬ë¼ì´ë”© íšŸìˆ˜")]
     public int easySlideCount = 3;
     public int normalSlideCount = 5;
     public int hardSlideCount = 7;
@@ -44,9 +44,9 @@ public class CapybaraGameManager : MonoBehaviour
     {
         switch (currentDifficulty)
         {
-            case Difficulty.Easy: targetScore = 200; break;
-            case Difficulty.Normal: targetScore = 300; break;
-            case Difficulty.Hard: targetScore = 400; break;
+            case Difficulty.Easy: targetScore = 150; break;
+            case Difficulty.Normal: targetScore = 250; break;
+            case Difficulty.Hard: targetScore = 350; break;
         }
     }
 
@@ -80,7 +80,7 @@ public class CapybaraGameManager : MonoBehaviour
         remainingSlideCount--;
         UpdateSlidingText();
 
-        // ½½¶óÀÌµùÀÌ ¸¶Áö¸·ÀÌ¸é¼­ Á¡¼ö Á¶°Çµµ ÃæÁ· ¡æ ½Â¸®·Î ÀüÈ¯
+        // ìŠ¬ë¼ì´ë”©ì´ ë§ˆì§€ë§‰ì´ë©´ì„œ ì ìˆ˜ ì¡°ê±´ë„ ì¶©ì¡± â†’ ìŠ¹ë¦¬ë¡œ ì „í™˜
         if (score >= targetScore && remainingSlideCount == 0)
         {
             WinGame();
@@ -96,10 +96,10 @@ public class CapybaraGameManager : MonoBehaviour
 
         if (score >= targetScore)
         {
-            // Á¡¼ö´Â µµ´ÞÇßÁö¸¸ ½½¶óÀÌµù ³²¾ÒÀ¸¸é ½ÇÆÐ Ã³¸®
+            // ì ìˆ˜ëŠ” ë„ë‹¬í–ˆì§€ë§Œ ìŠ¬ë¼ì´ë”© ë‚¨ì•˜ìœ¼ë©´ ì‹¤íŒ¨ ì²˜ë¦¬
             if (remainingSlideCount > 0)
             {
-                SetGameOver(); // ½ÇÆÐ·Î °£ÁÖ
+                SetGameOver(); // ì‹¤íŒ¨ë¡œ ê°„ì£¼
             }
             else
             {

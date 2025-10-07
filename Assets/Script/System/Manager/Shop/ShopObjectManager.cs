@@ -80,7 +80,7 @@ public class ShopObjectManager : MonoBehaviour
     {
         // 구매 완료 후 UI 업데이트
         UpdateAllShopItemsUI();
-        Debug.Log($"아이템 {itemID} 구매 완료 - UI 업데이트됨");
+    
     }
 
     private void InitializeUI()

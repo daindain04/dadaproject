@@ -1,61 +1,59 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
 public class MoneyUIManager : MonoBehaviour
 {
     [Header("UI Elements")]
     public List<TextMeshProUGUI> coinTexts = new List<TextMeshProUGUI>();
     public List<TextMeshProUGUI> gemTexts = new List<TextMeshProUGUI>();
-    public List<TextMeshProUGUI> totalExpTexts = new List<TextMeshProUGUI>();
+    public List<TextMeshProUGUI> expPercentTexts = new List<TextMeshProUGUI>(); // â­ ë³€ê²½: ê²½í—˜ì¹˜ í¼ì„¼íŠ¸ í…ìŠ¤íŠ¸
     public List<TextMeshProUGUI> levelTexts = new List<TextMeshProUGUI>();
-
     [Header("Experience Bar")]
-    public List<Image> expBars = new List<Image>(); // °æÇèÄ¡ ¹Ù (Fill ÀÌ¹ÌÁöµé)
-
+    public List<Image> expBars = new List<Image>(); // ê²½í—˜ì¹˜ ë°” (Fill ì´ë¯¸ì§€ë“¤)
     void Start()
     {
         UpdateUI();
     }
-
     public void UpdateUI()
     {
-        // ÄÚÀÎ ÅØ½ºÆ®µé ¾÷µ¥ÀÌÆ®
+        // ì½”ì¸ í…ìŠ¤íŠ¸ë“¤ ì—…ë°ì´íŠ¸
         foreach (TextMeshProUGUI coinText in coinTexts)
         {
             if (coinText != null)
                 coinText.text = MoneyManager.Instance.coins.ToString();
         }
-
-        // º¸¼® ÅØ½ºÆ®µé ¾÷µ¥ÀÌÆ®
+        // ë³´ì„ í…ìŠ¤íŠ¸ë“¤ ì—…ë°ì´íŠ¸
         foreach (TextMeshProUGUI gemText in gemTexts)
         {
             if (gemText != null)
                 gemText.text = MoneyManager.Instance.gems.ToString();
         }
 
-        // ÃÑ °æÇèÄ¡ ÅØ½ºÆ®µé ¾÷µ¥ÀÌÆ®
-        foreach (TextMeshProUGUI totalExpText in totalExpTexts)
-        {
-            if (totalExpText != null)
-                totalExpText.text = MoneyManager.Instance.totalExperience.ToString();
-        }
-
-        // ·¹º§ ÅØ½ºÆ®µé ¾÷µ¥ÀÌÆ®
+        // ë ˆë²¨ í…ìŠ¤íŠ¸ë“¤ ì—…ë°ì´íŠ¸
         foreach (TextMeshProUGUI levelText in levelTexts)
         {
             if (levelText != null)
-                levelText.text = "Level " + MoneyManager.Instance.level.ToString();
+                levelText.text = MoneyManager.Instance.level.ToString() + "Lv";
         }
 
-        // °æÇèÄ¡ ¹Ùµé ¾÷µ¥ÀÌÆ®
+        // ê²½í—˜ì¹˜ ë°”ë“¤ ì—…ë°ì´íŠ¸
         float expPercent = MoneyManager.Instance.GetCurrentLevelProgressPercent();
         foreach (Image expBar in expBars)
         {
             if (expBar != null)
                 expBar.fillAmount = expPercent;
+        }
+
+        // â­ ê²½í—˜ì¹˜ í¼ì„¼íŠ¸ í…ìŠ¤íŠ¸ë“¤ ì—…ë°ì´íŠ¸
+        foreach (TextMeshProUGUI expPercentText in expPercentTexts)
+        {
+            if (expPercentText != null)
+            {
+                int percentValue = Mathf.RoundToInt(expPercent * 100);
+                expPercentText.text = percentValue.ToString() + "%";
+            }
         }
     }
 }

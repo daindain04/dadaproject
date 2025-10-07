@@ -28,6 +28,8 @@ public class RoomChangeManager : MonoBehaviour
     public GameObject coinBar;
     public GameObject gemBar;
     public GameObject expBar;
+    public GameObject dropFoodToy;  // ⭐ 추가
+    public GameObject profile;
 
     [Header("카피바라 걷기")]
     public RectTransform capyWalkToKitchen;
@@ -113,9 +115,12 @@ public class RoomChangeManager : MonoBehaviour
         coinBar.SetActive(false);
         gemBar.SetActive(false);
         expBar.SetActive(false);
+        dropFoodToy.SetActive(false);  // ⭐ 추가
+        profile.SetActive(false);  // ⭐ 추가
+       
 
-        // 로딩 패널 먼저 보여주기
-        loadingToKitchen.SetActive(true);
+    // 로딩 패널 먼저 보여주기
+    loadingToKitchen.SetActive(true);
         moveToKitchenButton.gameObject.SetActive(false);
         moveToMainButton.gameObject.SetActive(false);
 
@@ -186,6 +191,8 @@ public class RoomChangeManager : MonoBehaviour
         coinBar.SetActive(true);
         gemBar.SetActive(true);
         expBar.SetActive(true);
+        dropFoodToy.SetActive(true);  // ⭐ 추가
+        profile.SetActive(true);  // ⭐ 추가
 
         UpdateButtonStates();
         GoToMainRoom();
@@ -211,7 +218,9 @@ public class RoomChangeManager : MonoBehaviour
         buttonGroup.SetActive(false);
         coinBar.SetActive(false);
         gemBar.SetActive(false);
-        expBar.SetActive(false);
+       // expBar.SetActive(false);
+        dropFoodToy.SetActive(false);  // ⭐ 추가
+        profile.SetActive(false);  // ⭐ 추가
 
         loadingToKitchen.SetActive(true);
         moveToKitchenButton.gameObject.SetActive(false);
@@ -242,6 +251,8 @@ public class RoomChangeManager : MonoBehaviour
         coinBar.SetActive(true);
         gemBar.SetActive(true);
         expBar.SetActive(true);
+        profile.SetActive(true);
+        dropFoodToy.SetActive(true);
 
         UpdateButtonStates();
         GoToKitchen();
@@ -253,6 +264,8 @@ public class RoomChangeManager : MonoBehaviour
         coinBar.SetActive(false);
         gemBar.SetActive(false);
         expBar.SetActive(false);
+        dropFoodToy.SetActive(false);  // ⭐ 추가
+        profile.SetActive(false);  // ⭐ 추가
 
         loadingToMain.SetActive(true);
         moveToKitchenButton.gameObject.SetActive(false);
@@ -279,10 +292,13 @@ public class RoomChangeManager : MonoBehaviour
         mainFurniture.SetActive(true);
         loadingToMain.SetActive(false);
 
+        // 메인방에서는 모든 UI 다시 켜기
         buttonGroup.SetActive(true);
         coinBar.SetActive(true);
         gemBar.SetActive(true);
         expBar.SetActive(true);
+        dropFoodToy.SetActive(true);  // ⭐ 메인방에서는 다시 켜기
+        profile.SetActive(true);  // ⭐ 메인방에서는 다시 켜기
 
         UpdateButtonStates();
         GoToMainRoom();

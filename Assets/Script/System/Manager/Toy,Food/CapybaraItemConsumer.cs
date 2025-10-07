@@ -1,61 +1,104 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CapybaraItemConsumer : MonoBehaviour
 {
-    [Header("ÇÊ¼ö")]
-    public ConditionManager conditionManager;   // Hunger/Boredom °ÔÀÌÁö
+    [Header("í•„ìˆ˜ ì°¸ì¡°")]
+    public ConditionManager conditionManager;
 
-    [Header("¹Ì¸®º¸±â(¼±ÅÃ)")]
-    public Image hoverPreviewImage;             // CanvasÀÇ Image (ºñÈ°¼º ½ÃÀÛ)
-    public Vector3 screenOffset = new Vector3(0, 80, 0);
+    [Header("ë¯¸ë¦¬ë³´ê¸° UI")]
+    public GameObject previewPanel;         // ë¯¸ë¦¬ë³´ê¸° íŒ¨ë„
+    public Image itemPreviewImage;          // ì•„ì´í…œ ë¯¸ë¦¬ë³´ê¸° ì´ë¯¸ì§€ (íš¨ê³¼ê°€ í¬í•¨ëœ ì´ë¯¸ì§€)
+
+    [Header("ì„¤ì •")]
+    public Vector3 worldOffset = new Vector3(0, 2f, 0);  // ì¹´í”¼ë°”ë¼ ê¸°ì¤€ ì›”ë“œ ì¢Œí‘œ ì˜¤í”„ì…‹
 
     private Camera _cam;
+    private Collider2D _collider;
 
-    private void Awake() => _cam = Camera.main;
+    private void Awake()
+    {
+        _cam = Camera.main;
+        _collider = GetComponent<Collider2D>();
+
+        // ë¯¸ë¦¬ë³´ê¸° íŒ¨ë„ ë¹„í™œì„±í™”
+        if (previewPanel) previewPanel.SetActive(false);
+    }
 
     private void LateUpdate()
     {
-        if (hoverPreviewImage && hoverPreviewImage.enabled)
-            hoverPreviewImage.rectTransform.position =
-                _cam.WorldToScreenPoint(transform.position) + screenOffset;
+        if (previewPanel && previewPanel.activeSelf)
+        {
+            // ì¹´í”¼ë°”ë¼ ì›”ë“œ ì¢Œí‘œ + ì˜¤í”„ì…‹ì„ ìŠ¤í¬ë¦° ì¢Œí‘œë¡œ ë³€í™˜
+            Vector3 targetWorldPos = transform.position + worldOffset;
+            Vector3 screenPos = _cam.WorldToScreenPoint(targetWorldPos);
+
+            // ë¯¸ë¦¬ë³´ê¸° íŒ¨ë„ì„ í•´ë‹¹ ìŠ¤í¬ë¦° ì¢Œí‘œì— ìœ„ì¹˜ì‹œí‚¤ê¸°
+            previewPanel.transform.position = screenPos;
+        }
     }
 
-    // µå·¡±×°¡ Ä«ÇÇ¹Ù¶ó À§¿¡ ¿Ã¶ó¿ÔÀ» ¶§
     public void ShowPreview(CapyItemData item)
     {
-        if (!hoverPreviewImage || !item) return;
-        hoverPreviewImage.sprite = item.previewSprite ? item.previewSprite : item.icon;
-        hoverPreviewImage.enabled = true;
+        if (!previewPanel || !item) return;
+
+        // ë¯¸ë¦¬ë³´ê¸° ì´ë¯¸ì§€ ì„¤ì • (íš¨ê³¼ê°€ í¬í•¨ëœ ì´ë¯¸ì§€)
+        if (itemPreviewImage)
+        {
+            itemPreviewImage.sprite = item.previewSprite ? item.previewSprite : item.icon;
+        }
+
+        previewPanel.SetActive(true);
     }
 
     public void HidePreview()
     {
-        if (hoverPreviewImage) hoverPreviewImage.enabled = false;
+        if (previewPanel) previewPanel.SetActive(false);
     }
 
-    // ½ÇÁ¦ µå·Ó ¼º°ø ½Ã
     public void Consume(CapyItemData item)
     {
         if (!item || conditionManager == null) return;
 
-        // ÀÎº¥Åä¸®¿¡¼­ 1°³ Â÷°¨ (¾øÀ¸¸é Á¾·á)
-        if (!Inventory.Instance.TryConsume(item, 1)) return;
+        // ì¸ë²¤í† ë¦¬ì—ì„œ 1ê°œ ì°¨ê°
+        if (!Inventory.Instance.TryConsume(item, 1))
+        {
+            Debug.Log($"ì•„ì´í…œì´ ë¶€ì¡±í•©ë‹ˆë‹¤: {item.displayName}");
+            return;
+        }
 
-        // 1) °ÔÀÌÁö ¹İ¿µ
-        if (item.hungerChange != 0f) conditionManager.Feed(item.hungerChange);
-        if (item.boredomChange != 0f) conditionManager.Play(item.boredomChange);
+        // íš¨ê³¼ ì ìš©
+        if (item.hungerChange != 0f)
+        {
+            conditionManager.Feed(item.hungerChange);
+            Debug.Log($"ë°°ê³ í”” {item.hungerChange:F1} ë³€í™”");
+        }
 
-        // 2) °æÇèÄ¡ ¹İ¿µ (MoneyManager »ç¿ë)
+        if (item.boredomChange != 0f)
+        {
+            conditionManager.Play(item.boredomChange);
+            Debug.Log($"ì§€ë£¨í•¨ {item.boredomChange:F1} ë³€í™”");
+        }
+
         if (item.expChange > 0)
         {
             if (MoneyManager.Instance != null)
+            {
                 MoneyManager.Instance.AddExperience(item.expChange);
-            else
-                Debug.LogWarning("[CapybaraItemConsumer] MoneyManager.Instance °¡ ¾ø½À´Ï´Ù.");
+                Debug.Log($"ê²½í—˜ì¹˜ +{item.expChange}");
+            }
         }
 
-        // 3) ¹Ì¸®º¸±â ²ô±â
+        // ë¯¸ë¦¬ë³´ê¸° ìˆ¨ê¸°ê¸°
         HidePreview();
+
+        Debug.Log($"{item.displayName}ì„(ë¥¼) ì¹´í”¼ë°”ë¼ì—ê²Œ ì£¼ì—ˆìŠµë‹ˆë‹¤!");
+    }
+
+    // ë“œë˜ê·¸ ê°ì§€ë¥¼ ìœ„í•œ ì˜ì—­ í™•ì¸
+    public bool IsPointInside(Vector2 worldPoint)
+    {
+        return _collider && _collider.OverlapPoint(worldPoint);
     }
 }
